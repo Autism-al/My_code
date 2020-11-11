@@ -1,75 +1,88 @@
 //index.js
-//获取应用实例
-const app = getApp()
-
 Page({
+  
+  /**
+   * 页面的初始数据
+   */
   data: {
-    userInfo: {},
-    hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    show:false,//控制下拉列表的显示隐藏，false隐藏、true显示
-    selectData:['福州','厦门','泉州','漳州','三明','广州'],//下拉列表的数据
-    index:0//选择的下拉列表下标
+    date: '2020-11-11', 
+  index: 0, 
+    selectArray: [{
+      "id": "1",
+      "text": "福州"
+  }, {
+      "id": "2",
+      "text": "厦门"
+  }, {
+    "id": "3",
+    "text": "三明"
+}, {
+  "id": "4",
+  "text": "广州"
+}, {
+  "id": "5",
+  "text": "上海"
+}]
   },
-  //事件处理函数
-  clickMe: function(){
-    this.setData({motto:"bye world"})
+  // 点击日期组件确定事件 
+ bindDateChange: function (e) { 
+  this.setData({ 
+   date: e.detail.value 
+  }) 
+ }, 
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    
   },
-  bindViewTap: function() {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+    
   },
-  onLoad: function () {
-    if (app.globalData.userInfo) {
-      this.setData({
-        userInfo: app.globalData.userInfo,
-        hasUserInfo: true
-      })
-    } else if (this.data.canIUse){
-      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-      // 所以此处加入 callback 以防止这种情况
-      app.userInfoReadyCallback = res => {
-        this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
-        })
-      }
-    } else {
-      // 在没有 open-type=getUserInfo 版本的兼容处理
-      wx.getUserInfo({
-        success: res => {
-          app.globalData.userInfo = res.userInfo
-          this.setData({
-            userInfo: res.userInfo,
-            hasUserInfo: true
-          })
-        }
-      })
-    }
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+    
   },
-  getUserInfo: function(e) {
-    console.log(e)
-    app.globalData.userInfo = e.detail.userInfo
-    this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
-    })
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function () {
+    
   },
-  // 点击下拉显示框
-  selectTap(){
-    this.setData({
-     show: !this.data.show
-    });
-    },
-    // 点击下拉列表
-    optionTap(e){
-    let Index=e.currentTarget.dataset.index;//获取点击的下拉列表的下标
-    this.setData({
-     index:Index,
-     show:!this.data.show
-    });
-    },
-    onLoad: function (options) {
-    }
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function () {
+    
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+    
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+    
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+    
+  }
 })

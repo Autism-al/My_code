@@ -1,52 +1,51 @@
 {
-  "pages":[
+  "pages": [
     "pages/index/index",
+    "pages/Result/Result",
+    
     "pages/BudgetTicket/BudgetTicket",
     "pages/VipDay/VipDay",
     "pages/Favorites/Favorites",
-    "pages/Result/Result",
-    "pages/BudgetResult/BudgetResult",
-    "pages/logs/logs"    
+    "pages/BudgetResult/BudgetResult"
   ],
-  "window":{
-    "backgroundTextStyle":"dark",
+  
+  "window": {
+    "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#59A5EE",
     "navigationBarTitleText": "ARIA",
-    "navigationBarTextStyle":"white",
-    "enablePullDownRefresh":true
-    
+    "navigationBarTextStyle": "white",
+    "enablePullDownRefresh": true
   },
   "tabBar": {
     "list": [
-    {
-      "pagePath": "pages/index/index",
-      "text": "首页",
-      "iconPath": "images/images0/home.png",
-      "selectedIconPath": "images/images0/home.png"
-    },
-    {
-      "pagePath": "pages/BudgetTicket/BudgetTicket",
-      "text": "特价专区",
-      "iconPath": "images/images0/SearchTicket.png",
-      "selectedIconPath": "images/images0/SearchTicket.png"
-    },
-    {
-      "pagePath": "pages/BudgetTicket/BudgetTicket",
-      "text": "会员日",
-      "iconPath": "images/images0/VipDay.png",
-      "selectedIconPath": "images/images0/VipDay.png"
-    },
-    {
-      "pagePath": "pages/BudgetTicket/BudgetTicket",
-      "text": "我的收藏",
-      "iconPath": "images/images0/shoucang.png",
-      "selectedIconPath": "images/images0/shoucang.png"
-    }
-  ],
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/images0/home.png",
+        "selectedIconPath": "images/images0/home.png"
+      },
+      {
+        "pagePath": "pages/BudgetTicket/BudgetTicket",
+        "text": "特价专区",
+        "iconPath": "images/images0/SearchTicket.png",
+        "selectedIconPath": "images/images0/SearchTicket.png"
+      },
+      {
+        "pagePath": "pages/BudgetTicket/BudgetTicket",
+        "text": "会员日",
+        "iconPath": "images/images0/VipDay.png",
+        "selectedIconPath": "images/images0/VipDay.png"
+      },
+      {
+        "pagePath": "pages/BudgetTicket/BudgetTicket",
+        "text": "我的收藏",
+        "iconPath": "images/images0/shoucang.png",
+        "selectedIconPath": "images/images0/shoucang.png"
+      }
+    ],
     "backgroundColor": "#FFFFFF",
     "borderStyle": "white"
   },
-
   "style": "v2",
   "sitemapLocation": "sitemap.json"
 }
