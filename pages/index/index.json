@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "Select": "/Componet/select/select"
+},
+  "navigationBarBackgroundColor": "#59A5EE",
+  "navigationBarTitleText": "ARIA"
+}
+

@@ -1,0 +1,4 @@
+<!--pages/BudgetTicket/BudgetTicket.wxml-->
+<view>
+    <image mode="widthFix" src="https://files-cdn.cnblogs.com/files/autism-al/gaitubao_PlaneTop_bmp.bmp" />
+  </view>

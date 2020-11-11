@@ -1,0 +1,69 @@
+/**index.wxss**/
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: #aaa;
+}
+
+.usermotto {
+  margin-top: 200px;
+  font-size: 50px;
+}
+
+.TopPlane{
+  width: 375px;
+}
+
+.ContentBox{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.TopBox{
+  display: flex;
+  align-items: center;
+}
+
+.SelectBox{
+  display: flex;
+  align-items: center;/* 设置一个大盒子内容居中排列*/
+}
+
+.Arrowhead{
+  width: 30px;
+  height: 30px;
+  align-items: center;
+}
+
+.SearchBox{
+  background-color:white;
+  margin: 30rpx 30rpx 30rpx 30rpx;
+  
+}
+.Search{
+  background-color: #59A5EE;
+  color:white;
+  height: 80rpx;
+  
+}
+
+.DateBox{
+  width: 80%;
+  border-bottom:#E6E6E6 1px solid;
+  margin:20rpx;
+  padding:20rpx;
+  justify-content: flex-start;
+  font-size: 40rpx;
+}
