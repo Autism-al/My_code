@@ -25,6 +25,12 @@ Page({
 }]
   },
   // 点击日期组件确定事件 
+  goToResultPage: function(e){
+    wx.navigateTo({
+      url: "../../pages/Result/Result",  
+      })
+  },
+
  bindDateChange: function (e) { 
   this.setData({ 
    date: e.detail.value 

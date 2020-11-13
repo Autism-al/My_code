@@ -1,1 +1,33 @@
-<!--pages/Result/Result.wxml-->
+
+  <view class="ContentBox">
+  <view class="TopBox">
+    <image class="TopPlane" lazy-load="true" mode="widthFix" src="https://s1.ax1x.com/2020/11/09/BHLe4H.png" />
+  </view>
+
+  <scroll-view class="scroll-view" scroll-left="{{scrollLeftIndex*itemWidth}}" scroll-x scroll-with-animation>
+  <view class='item' style='width:{{itemWidth}}px' wx:for="{{dateList}}" data-index='{{index}}' bindtap='clickDate'>
+    <view class='text-view {{index==clickIndex?"day-active":""}}'>
+      <view class='day'>{{item.month+"/"+item.day}}</view>
+      <view wx:if="{{item.month == sysmonth && item.day == nowDate}}">
+        <text class='week'>今日</text>
+      </view>
+      <view wx:else>
+        <text class='week'>{{item.week}}</text>
+      </view>
+    </view>
+  </view>
+</scroll-view>
+
+<scroll-view scroll-y class='MovableBox'>
+<view  wx:for="{{items}}" wx:key="{{index}}">
+  <movable-area class='movable-area'>
+    <movable-view direction="horizontal" class='movable-view'>
+      <view class="touch-item {{item.isTouchMove ? 'touch-move-active' : ''}}" data-index="{{index}}" bindtouchstart="touchstart" bindtouchmove="touchmove">
+        <view class="content" bindtap='goDetail'>{{item.content}}</view>
+        <view class="del" catchtap="del" data-index="{{index}}"><view class="iconfont iconshoucang4"></view><text>收藏</text></view>
+      </view>
+    </movable-view>
+  </movable-area>
+</view>
+</scroll-view>
+</view>

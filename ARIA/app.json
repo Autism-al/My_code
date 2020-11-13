@@ -1,11 +1,13 @@
 {
   "pages": [
-    "pages/index/index",
     "pages/Result/Result",
+    "pages/demo0/demo0",
+    "pages/Favorites/Favorites",
+    "pages/index/index",
     
     "pages/BudgetTicket/BudgetTicket",
     "pages/VipDay/VipDay",
-    "pages/Favorites/Favorites",
+    
     "pages/BudgetResult/BudgetResult"
   ],
   

@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "calendarTop":"../../Componet/calendarTop/calendarTop"
+  },
+  "navigationBarTitleText": "机票查询"
 }

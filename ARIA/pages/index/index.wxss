@@ -21,8 +21,12 @@
   font-size: 50px;
 }
 
+.TopBox{
+  width: 750rpx;
+  height: 89.83*2rpx;
+}
 .TopPlane{
-  width: 375px;
+  width: 100%;
 }
 
 .ContentBox{
@@ -44,19 +48,26 @@
 .Arrowhead{
   width: 30px;
   height: 30px;
-  align-items: center;
 }
 
 .SearchBox{
-  background-color:white;
+  width: 80%;
+  border-radius: 18rpx;
   margin: 30rpx 30rpx 30rpx 30rpx;
-  
-}
-.Search{
   background-color: #59A5EE;
   color:white;
-  height: 80rpx;
-  
+  line-height: 80rpx;
+}
+
+.SearchBox navigator{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.SearchBox navigator text{
+  font-size: 40rpx;
 }
 
 .DateBox{

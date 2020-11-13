@@ -22,7 +22,8 @@
 </view> 
 
   <view class="SearchBox">
-    <button class="Search" style="width:80vw">搜索</button>
+    <!-- <button style="width:80vw" bindtap="goToResultPage">搜索</button> -->
+    <navigator url="../../pages/Result/Result"><text>搜索</text></navigator>
   </view>
   
 </view>
