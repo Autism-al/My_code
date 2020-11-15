@@ -1,1 +1,16 @@
 /* pages/Favorites/Favorites.wxss */
+.userInfoWrap{
+  height: 35vh;
+  width: 100%;
+  background-color: var(--themeColor);
+  overflow: hidden;
+}
+/* .userImgWrap{
+
+} */
+.userBg{
+  height: 45vh;
+  width: 100%;
+  /* 背景高斯模糊 */
+  filter: blur(10rpx);
+}

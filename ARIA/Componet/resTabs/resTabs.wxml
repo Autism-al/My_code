@@ -1,0 +1,16 @@
+<!--Componet/resTabs/resTabs.wxml-->
+<view class="tabs">
+  <view class="tabsTitle">
+    <view 
+    wx:for="{{resTabs}}" wx:key="id"
+     class="titleItem {{item.isActive?'active':''}} {{item.class}}"
+     bindtap="handleItemTap"
+     data-index="{{index}}" >
+     {{item.value}}
+    </view>
+  </view>
+  <view class="tabsContent">
+    <slot></slot>
+  </view>
+
+</view>

@@ -5,9 +5,50 @@ Page({
    * 页面的初始数据
    */
   data: {
+    dtime: "09:00",
+    dplace: "福州",
+    atime: "15:00",
+    aplace: "上海",
+    priceInf: 1000,
+    items: [],
+    startX: 0, //开始坐标
+    startY: 0,
     dateList:[],    //存放日期的数组
     nowDate:'', //系统当前日期
+    resTabs:[//定义筛选栏数据和样式，样式由外部引入
+      {
+        id:0,
+        value:"仅特价",
+        class:"iconfont icontejiajipiaobiaoqian",
+        isActive:false
+      },
+      {
+        id:1,
+        value:"时间",
+        class:"iconfont iconhuabanfuben",
+        isActive:true,
+      },
+      {
+        id:2,
+        value:"价格",
+        class:"iconfont iconjiageguanxiguanli",
+        isActive:false
+      }
+    ]
   },
+  //标题点击事件 从子组件传递
+  handleTabsItemChange(e){
+    console.log(e);
+    //获取被点击的标题索引
+    const {index} = e.detail;
+    //修改源数组
+    let {resTabs} = this.data;
+    resTabs.forEach((v,i)=>i==index?v.isActive=true:v.isActive=false)
+    this.setData({
+      resTabs
+    })
+  },
+
   // 格式化日期，时间
   formatTime(date) {
     const year = date.getFullYear()
@@ -111,11 +152,6 @@ Page({
     // });
     // console.log(this.data.dateList[index]);
   },
-  data: {
-    items: [],
-    startX: 0, //开始坐标
-    startY: 0
-  },
   loadTicketInf: function () {
     for (var i = 0; i < 10; i++) {
       this.data.items.push({
@@ -183,10 +219,6 @@ Page({
     this.setData({
       items: this.data.items
     })
-  },
-  //跳转
-  goDetail(){
-    console.log('点击元素跳转')
   },
   
   

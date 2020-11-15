@@ -4,7 +4,7 @@
     "ignore": []
   },
   "setting": {
-    "urlCheck": true,
+    "urlCheck": false,
     "es6": true,
     "enhance": false,
     "postcss": true,
@@ -61,7 +61,14 @@
       "list": []
     },
     "miniprogram": {
-      "list": []
+      "list": [
+        {
+          "name": "个人中心",
+          "pathName": "pages/Favorites/Favorites",
+          "query": "",
+          "scene": null
+        }
+      ]
     }
   }
 }

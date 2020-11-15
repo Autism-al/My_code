@@ -3,12 +3,7 @@ page{
   height: 100%;
 }
 .ContentBox{
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap; 
-  width: 100%;
   background-color:rgba(7,98,193) ;
-  height: 100%;
 }
 
 .TopBox{
@@ -24,12 +19,18 @@ page{
   margin: 10rpx;
 }
 
+.calendarBox{
+  width: 100%;
+  
+}
+
 .scroll-view {
   height: 120rpx;
   background-color: #00509F;
-  width: 98%;
+  width: 100%;
   white-space: nowrap;
   border-radius: 4rpx;
+  display: flex;
 }
 .item {
   height: 120rpx;
@@ -68,13 +69,15 @@ page{
   color: #fff;
 }
 
-.MovableBox{
-  width: 98%;
+.tabsBox{
+  position:fixed;
+  bottom:0;
+  z-index: 9999;
+  width: 100%;
+}
+
+.ticketList{
   background-color: rgba(7,98,193);
-  height: 1100rpx;
-  display: flex;
-  justify-content: center;
-  margin-top: 10rpx;
 }
 
 .movable-area{
@@ -92,12 +95,11 @@ page{
   font-size: 14px;
   display: flex;
   justify-content: space-between;
-
   width: 100%;
   height: 100%;
   overflow: hidden
 }
-.content {
+.ticketInf{
   width: 100%;
   padding: 10px;
   line-height: 22px;
@@ -106,8 +108,42 @@ page{
   transition: all 0.4s;
   -webkit-transform: translateX(90px);
   transform: translateX(90px);
-  margin-left: -90px
+  margin-left: -90px;
+  display:flex;
 }
+
+.timePlace{
+  flex: 5;
+  display: flex;
+  align-items: center;
+}
+.dtimeDplace{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+}
+
+.timeInf{
+  font-size: 56rpx;
+}
+
+.placeInf{
+  font-size: 36rpx;
+}
+
+.priceInf{
+  flex: 2;
+  font-size: 60rpx;
+  display: flex;
+  color: rgb(244, 132, 32);
+  align-items: center;
+}
+
+.money{
+  font-size: 30rpx;
+}
+
 .del {
   background-color: #00509F;
   font-size: 26rpx;

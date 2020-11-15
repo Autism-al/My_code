@@ -1,10 +1,12 @@
 
-  <view class="ContentBox">
+<view class="ContentBox">
+<!-- 顶部图片 -->
   <view class="TopBox">
     <image class="TopPlane" lazy-load="true" mode="widthFix" src="https://s1.ax1x.com/2020/11/09/BHLe4H.png" />
   </view>
-
-  <scroll-view class="scroll-view" scroll-left="{{scrollLeftIndex*itemWidth}}" scroll-x scroll-with-animation>
+<!-- 横向滑动日历 -->
+<view class="calendarBox">
+  <scroll-view enable-flex class="scroll-view" scroll-left="{{scrollLeftIndex*itemWidth}}" scroll-x scroll-with-animation>
   <view class='item' style='width:{{itemWidth}}px' wx:for="{{dateList}}" data-index='{{index}}' bindtap='clickDate'>
     <view class='text-view {{index==clickIndex?"day-active":""}}'>
       <view class='day'>{{item.month+"/"+item.day}}</view>
@@ -17,17 +19,52 @@
     </view>
   </view>
 </scroll-view>
+</view>
+<!-- tabs筛选机票 -->
+<resTabs resTabs="{{resTabs}}" class="tabsBox" bindtabsItemChange="handleTabsItemChange">
+  <block wx:if="{{resTabs[0].isActive}}">
+  
+  </block>
+  <block wx:elif="{{resTabs[1].isActive}}">
 
-<scroll-view scroll-y class='MovableBox'>
+  </block>
+  <block wx:elif="{{resTabs[2].isActive}}">
+
+  </block>
+</resTabs>
+
+<!-- 机票信息列表，可向左滑动点击收藏 -->
+<view class="ticketList">
 <view  wx:for="{{items}}" wx:key="{{index}}">
   <movable-area class='movable-area'>
     <movable-view direction="horizontal" class='movable-view'>
       <view class="touch-item {{item.isTouchMove ? 'touch-move-active' : ''}}" data-index="{{index}}" bindtouchstart="touchstart" bindtouchmove="touchmove">
-        <view class="content" bindtap='goDetail'>{{item.content}}</view>
+        <!-- 机票信息 -->
+        <view class="ticketInf">
+          <!-- 时间地点 -->
+          <view class="timePlace">
+            <!-- 出发时间地点 -->
+            <view class="dtimeDplace">
+              <view class="timeInf">{{dtime}}</view>
+              <view class="placeInf">{{dplace}}</view>
+            </view>
+            <view class="iconfont iconrightArrow"></view>
+            <!-- 到达时间地点 -->
+            <view class="dtimeDplace">
+              <view class="timeInf">{{atime}}</view>
+              <view class="placeInf">{{aplace}}</view>
+            </view>
+          </view>
+          <!-- 票价信息 -->
+          <view class="priceInf">
+            <view class="money">￥</view>
+            <view class="price">{{priceInf}}</view>
+          </view>
+        </view>
         <view class="del" catchtap="del" data-index="{{index}}"><view class="iconfont iconshoucang4"></view><text>收藏</text></view>
       </view>
     </movable-view>
   </movable-area>
 </view>
-</scroll-view>
+</view>
 </view>

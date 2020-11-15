@@ -1,2 +1,11 @@
-<!--pages/Favorites/Favorites.wxml-->
-<text>pages/Favorites/Favorites.wxml</text>
+<!-- <navigator url="/pages/login/login">登录</navigator> -->
+<view class="userInfoWrap">
+  <view class="userImgWrap">
+    <image class="userBg" src="{{userInfo.avatarUrl}}"></image>
+    <!-- <view class="userinfo">
+      <image class="userIcon" src="{{userInfo.avatarUrl}}"></image>
+      <view class="useName"></view>
+    </view> -->
+    
+  </view>
+</view>

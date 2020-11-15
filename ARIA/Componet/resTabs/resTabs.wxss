@@ -1,0 +1,33 @@
+/* Componet/resTabs/resTabs.wxss */
+@import "../../styles/iconfont.wxss";
+
+.tabs{
+  background-color: rgba(68, 84, 109,0.4);
+  height: 100rpx;
+  display: flex;
+  border-radius: 12rpx;
+}
+
+.tabsTitle{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+}
+.titleItem{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  height: 100%;
+}
+
+.active{
+  color: rgb(26, 94, 139);
+  background-color: rgb(40,55,74,0.4);
+}
+
+/* .tabsContent{
+
+} */
