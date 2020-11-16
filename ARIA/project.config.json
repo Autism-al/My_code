@@ -67,6 +67,12 @@
           "pathName": "pages/Favorites/Favorites",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "接口测试",
+          "pathName": "pages/demo1/demo1",
+          "query": "",
+          "scene": null
         }
       ]
     }

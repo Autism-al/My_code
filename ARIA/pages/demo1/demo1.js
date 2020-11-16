@@ -12,10 +12,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getRequest();
+    this.directRequest();
     
   },
-  getRequest(){
+  directRequest(){
     //发送异步请求获取数据
     wx.request({
       url: 'http://airaflyscanner.site:8000/directResearch/',
@@ -28,15 +28,17 @@ Page({
       }
     })
   },
-  getDirect(){
+  normalRequest(){
     //请求直达机票信息
     wx.request({
       url: 'url',
       data: {
-  
+        dcityName:"福州",
+        dtime:"2020-11-19",
+        actiyName:"上海"
       },
       success:((res) => {
-        //数据绑定
+        console.log(result);
       })
       })
     

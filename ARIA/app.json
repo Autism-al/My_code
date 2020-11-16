@@ -40,7 +40,7 @@
       },
       {
         "pagePath": "pages/BudgetTicket/BudgetTicket",
-        "text": "我的收藏",
+        "text": "我的",
         "iconPath": "images/images0/shoucang.png",
         "selectedIconPath": "images/images0/shoucang.png"
       }
