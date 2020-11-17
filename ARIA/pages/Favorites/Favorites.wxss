@@ -1,4 +1,8 @@
 /* pages/Favorites/Favorites.wxss */
+page{
+  background-color: rgb(233,234,238);
+}
+
 .userInfoWrap{
   height: 45vh;
   position: relative;
@@ -48,4 +52,36 @@
   background-color: rgb(254, 149, 18);
   width: 40%;
   text-align: center;
+}
+
+.userContent{
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  left: 10%;
+  margin-top: 20rpx;
+  
+}
+
+.userMain{
+  width: 100%;
+  display: flex;
+  border-radius: 16rpx;
+  border: white solid;
+  background-color: white;
+  
+}
+
+.favorites{
+  width: 100%;
+  border-bottom: rgba(128, 128, 128, 0.164) solid 1px;
+}
+
+.favorites>navigator{
+  font-size: 36rpx;
+  padding: 20rpx 30rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }

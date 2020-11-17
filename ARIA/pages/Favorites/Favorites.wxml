@@ -12,3 +12,9 @@
   </view>
   
 </view>
+
+<view class="userContent">
+  <view class="userMain">
+    <view class="favorites"><navigator url=""><text>我的收藏</text> <text  class="iconfont iconarrow-right"></text></navigator></view>
+  </view>
+</view>

@@ -5,7 +5,7 @@
     "pages/demo1/demo1",
     "pages/demo0/demo0",
     "pages/Favorites/Favorites",
-    
+    "pages/loading/loading",
     "pages/BudgetTicket/BudgetTicket",
     "pages/VipDay/VipDay",
     "pages/BudgetResult/BudgetResult"
@@ -28,18 +28,12 @@
       },
       {
         "pagePath": "pages/BudgetTicket/BudgetTicket",
-        "text": "特价专区",
+        "text": "直达搜索",
         "iconPath": "images/images0/SearchTicket.png",
         "selectedIconPath": "images/images0/SearchTicket.png"
       },
       {
-        "pagePath": "pages/BudgetTicket/BudgetTicket",
-        "text": "会员日",
-        "iconPath": "images/images0/VipDay.png",
-        "selectedIconPath": "images/images0/VipDay.png"
-      },
-      {
-        "pagePath": "pages/BudgetTicket/BudgetTicket",
+        "pagePath": "pages/Favorites/Favorites",
         "text": "我的",
         "iconPath": "images/images0/shoucang.png",
         "selectedIconPath": "images/images0/shoucang.png"

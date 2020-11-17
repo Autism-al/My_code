@@ -159,7 +159,7 @@ page{
   transition: all 0.4s;
 }
 
-.touch-move-active .content,
+.touch-move-active .ticketInf,
 .touch-move-active .del {
   -webkit-transform: translateX(0);
   transform: translateX(0);

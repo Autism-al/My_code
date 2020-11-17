@@ -73,6 +73,11 @@
           "pathName": "pages/demo1/demo1",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "载入页面",
+          "pathName": "pages/loading/loading",
+          "scene": null
         }
       ]
     }

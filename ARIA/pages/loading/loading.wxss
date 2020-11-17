@@ -1,0 +1,15 @@
+.TopPlane{
+  width: 375px;
+}
+
+.ContentBox{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: 700px;
+}
+
+.TopBox{
+  display: flex;
+  align-items: center;
+}
