@@ -1,0 +1,48 @@
+<!-- 引入wxs脚本 -->
+<!-- 通过自定义的module名称tools引用sub截取方法 -->
+<wxs src="../../wxs/subutils.wxs" module="tools" />
+<view class="contentBox">
+  <view class="topBox">
+    <view class="collectTitle">
+      <text>收藏</text>
+    </view>
+    <view class="collectType">
+      <text>全部分类</text>
+      <text class="iconfont iconzhankai"></text>
+    </view>
+  </view>
+</view>
+
+<view class="ticketList">
+<view  wx:for="{{collect}}" wx:key="{{index}}">
+  <movable-area class='movable-area'>
+    <movable-view direction="horizontal" class='movable-view'>
+      <view class="touch-item {{item.isTouchMove ? 'touch-move-active' : ''}}" data-index="{{index}}" bindtouchstart="touchstart" bindtouchmove="touchmove">
+        <!-- 机票信息 -->
+        <view class="ticketInf">
+          <!-- 时间地点 -->
+          <view class="timePlace">
+            <!-- 出发时间地点 -->
+            <view class="dtimeDplace">
+              <view class="timeInf">{{tools.sub(item.departureDate,11,16)}}</view>
+              <view class="placeInf">{{item.dcityName}}</view>
+            </view>
+            <view class="iconfont iconrightArrow"></view>
+            <!-- 到达时间地点 -->
+            <view class="dtimeDplace">
+              <view class="timeInf">{{tools.sub(item.arrivalDate,11,16)}}</view>
+              <view class="placeInf">{{item.acityName}}</view>
+            </view>
+          </view>
+          <!-- 票价信息 -->
+          <view class="priceInf">
+            <view class="money">￥</view>
+            <view class="price">{{item.price}}</view>
+          </view>
+        </view>
+        <view class="del" catchtap="del" data-index="{{index}}"><text wx:if="{{item.isCollect}}">已收藏</text><text wx:else>收藏</text></view>
+      </view>
+    </movable-view>
+  </movable-area>
+</view>
+</view>

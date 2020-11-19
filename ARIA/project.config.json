@@ -77,6 +77,18 @@
         {
           "name": "载入页面",
           "pathName": "pages/loading/loading",
+          "query": "",
+          "scene": 1001
+        },
+        {
+          "name": "pages/Result/Result",
+          "pathName": "pages/Result/Result",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "收藏夹",
+          "pathName": "pages/Collections/Collections",
           "scene": null
         }
       ]

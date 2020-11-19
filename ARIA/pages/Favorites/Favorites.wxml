@@ -15,6 +15,6 @@
 
 <view class="userContent">
   <view class="userMain">
-    <view class="favorites"><navigator url=""><text>我的收藏</text> <text  class="iconfont iconarrow-right"></text></navigator></view>
+    <view class="favorites"><navigator url="../../pages/Collections/Collections"><text>我的收藏</text> <text  class="iconfont iconarrow-right"></text></navigator></view>
   </view>
 </view>

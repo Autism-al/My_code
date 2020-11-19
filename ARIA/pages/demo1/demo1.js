@@ -16,12 +16,13 @@ Page({
     
   },
   directRequest(){
-    //发送异步请求获取数据
+    //请求直达机票信息
     wx.request({
       url: 'http://airaflyscanner.site:8000/directResearch/',
       data:{
-        dcity:"福州",
-        dtime:"2020-11-19"
+        dcityName:"福州",
+        dtime:"2020-11-22",
+        sortType:"price"
       },
       success: (result)=>{
         console.log(result);
@@ -29,9 +30,9 @@ Page({
     })
   },
   normalRequest(){
-    //请求直达机票信息
+    //请求常规搜索机票信息
     wx.request({
-      url: 'url',
+      url: 'http://airaflyscanner.site:8000/normalResearch/',
       data: {
         dcityName:"福州",
         dtime:"2020-11-19",

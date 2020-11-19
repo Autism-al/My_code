@@ -5,7 +5,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-    date: '2020-11-11', 
+    today: '请选择日期', 
+    monthSelected: 0,
+    dateSelected: 0,
+    daySelected: [],
   index: 0, 
     selectArray: [{
       "id": "1",
@@ -24,23 +27,44 @@ Page({
   "text": "上海"
 }]
   },
-  // 点击日期组件确定事件 
+  
   goToResultPage: function(e){
     wx.navigateTo({
       url: "../../pages/Result/Result",  
       })
   },
 
- bindDateChange: function (e) { 
+  initDate: function(e){
+    const nowDateTime = new Date();
+    let nowDay = '';
+    let daySelected = nowDateTime.toLocaleDateString().split("/");
+    nowDay += nowDateTime.getFullYear();
+    nowDay += "-";
+    nowDay += nowDateTime.getMonth()+1;
+    nowDay += "-";
+    nowDay += nowDateTime.getDate();
+    this.setData({
+      today: nowDay,
+      daySelected
+    })
+    console.log("默认传递时间为",daySelected);
+  },
+
+ bindDateChange: function (e) {
+   let daySelected = e.detail.value.split("-");
+   console.log(daySelected);
   this.setData({ 
-   date: e.detail.value 
+   today: e.detail.value,
+   daySelected
   }) 
+    
+
  }, 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    this.initDate();
   },
 
   /**

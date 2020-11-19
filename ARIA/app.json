@@ -8,7 +8,8 @@
     "pages/loading/loading",
     "pages/BudgetTicket/BudgetTicket",
     "pages/VipDay/VipDay",
-    "pages/BudgetResult/BudgetResult"
+    "pages/BudgetResult/BudgetResult",
+    "pages/Collections/Collections"
   ],
   
   "window": {
@@ -24,19 +25,19 @@
         "pagePath": "pages/index/index",
         "text": "首页",
         "iconPath": "images/images0/home.png",
-        "selectedIconPath": "images/images0/home.png"
+        "selectedIconPath": "images/images0/homeSelected.png"
       },
       {
         "pagePath": "pages/BudgetTicket/BudgetTicket",
         "text": "直达搜索",
         "iconPath": "images/images0/SearchTicket.png",
-        "selectedIconPath": "images/images0/SearchTicket.png"
+        "selectedIconPath": "images/images0/SearchTicketSelected.png"
       },
       {
         "pagePath": "pages/Favorites/Favorites",
         "text": "我的",
-        "iconPath": "images/images0/shoucang.png",
-        "selectedIconPath": "images/images0/shoucang.png"
+        "iconPath": "images/images0/user.png",
+        "selectedIconPath": "images/images0/userSelected.png"
       }
     ],
     "backgroundColor": "#FFFFFF",

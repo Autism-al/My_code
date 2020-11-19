@@ -7,23 +7,24 @@
   <view class="SelectBox">
     <Select prop-array='{{selectArray}}'></Select>
     <view>
-      <image class="Arrowhead" src="https://s1.ax1x.com/2020/11/10/BbD4eK.png"></image>
+      <!-- <image class="Arrowhead" src="https://s1.ax1x.com/2020/11/10/BbD4eK.png"></image> -->
+      <view class="iconfont iconPlane"></view>
     </view>
-    <Select prop-array='{{selectArray}}'></Select>
+    <!-- <Select prop-array='{{selectArray}}'></Select> -->
   </view>
 
 <!--index.wxml--> 
 <view class="DateBox"> 
- <picker mode="date" value="{{date}}" start="2020-11-11" end="2025-11-11" bindchange="bindDateChange"> 
+ <picker mode="date" value="{{date}}" start="2020/11/11" end="2025/11/11" bindchange="bindDateChange"> 
   <view class="picker"> 
-   {{date}} 
+   {{today}} 
   </view> 
  </picker> 
 </view> 
 
   <view class="SearchBox">
     <!-- <button style="width:80vw" bindtap="goToResultPage">搜索</button> -->
-    <navigator url="../../pages/Result/Result"><text>搜索</text></navigator>
+    <navigator url="../../pages/Result/Result?dateSelected={{daySelected[2]}}&monthSelected={{daySelected[1]}}&yearSelected={{daySelected[0]}}"><text>搜索</text></navigator>
   </view>
   
 </view>

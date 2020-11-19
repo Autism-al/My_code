@@ -1,3 +1,6 @@
+<!-- 引入wxs脚本 -->
+<!-- 通过自定义的module名称tools引用sub截取方法 -->
+<wxs src="../../wxs/subutils.wxs" module="tools" />
 
 <view class="ContentBox">
 <!-- 顶部图片 -->
@@ -6,9 +9,9 @@
   </view>
 <!-- 横向滑动日历 -->
 <view class="calendarBox">
-  <scroll-view enable-flex class="scroll-view" scroll-left="{{scrollLeftIndex*itemWidth}}" scroll-x scroll-with-animation>
+  <scroll-view enable-flex class="scroll-view" scroll-left="{{(clickIndex-5)*itemWidth}}" scroll-x scroll-with-animation>
   <view class='item' style='width:{{itemWidth}}px' wx:for="{{dateList}}" data-index='{{index}}' bindtap='clickDate'>
-    <view class='text-view {{index==clickIndex?"day-active":""}}'>
+    <view class='text-view {{item.month == monthSelected && item.day == dateSelected?"day-active":""}}'>
       <view class='day'>{{item.month+"/"+item.day}}</view>
       <view wx:if="{{item.month == sysmonth && item.day == nowDate}}">
         <text class='week'>今日</text>
@@ -22,7 +25,7 @@
 </view>
 <!-- tabs筛选机票 -->
 <resTabs resTabs="{{resTabs}}" class="tabsBox" bindtabsItemChange="handleTabsItemChange">
-  <block wx:if="{{resTabs[0].isActive}}">
+  <block wx:if="{{resTabs[0].isActive}}" >
   
   </block>
   <block wx:elif="{{resTabs[1].isActive}}">
@@ -35,7 +38,7 @@
 
 <!-- 机票信息列表，可向左滑动点击收藏 -->
 <view class="ticketList">
-<view  wx:for="{{items}}" wx:key="{{index}}">
+<view  wx:for="{{ticketInfList}}" wx:key="{{index}}">
   <movable-area class='movable-area'>
     <movable-view direction="horizontal" class='movable-view'>
       <view class="touch-item {{item.isTouchMove ? 'touch-move-active' : ''}}" data-index="{{index}}" bindtouchstart="touchstart" bindtouchmove="touchmove">
@@ -45,23 +48,23 @@
           <view class="timePlace">
             <!-- 出发时间地点 -->
             <view class="dtimeDplace">
-              <view class="timeInf">{{dtime}}</view>
-              <view class="placeInf">{{dplace}}</view>
+              <view class="timeInf">{{tools.sub(item.departureDate,11,16)}}</view>
+              <view class="placeInf">{{item.dcityName}}</view>
             </view>
             <view class="iconfont iconrightArrow"></view>
             <!-- 到达时间地点 -->
             <view class="dtimeDplace">
-              <view class="timeInf">{{atime}}</view>
-              <view class="placeInf">{{aplace}}</view>
+              <view class="timeInf">{{tools.sub(item.arrivalDate,11,16)}}</view>
+              <view class="placeInf">{{item.acityName}}</view>
             </view>
           </view>
           <!-- 票价信息 -->
           <view class="priceInf">
             <view class="money">￥</view>
-            <view class="price">{{priceInf}}</view>
+            <view class="price">{{item.price}}</view>
           </view>
         </view>
-        <view class="del" catchtap="del" data-index="{{index}}"><view class="iconfont iconshoucang4"></view><text>收藏</text></view>
+        <view class="col" catchtap="handleCollect" data-index="{{index}}"><view class="iconfont {{item.isCollect?'iconcollectSelected':'iconcollect'}}"></view><text wx:if="{{item.isCollect}}">已收藏</text><text wx:else>收藏</text></view>
       </view>
     </movable-view>
   </movable-area>

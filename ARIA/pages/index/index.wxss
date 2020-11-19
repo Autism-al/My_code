@@ -42,12 +42,18 @@
 
 .SelectBox{
   display: flex;
-  align-items: center;/* 设置一个大盒子内容居中排列*/
+  width: 90%;
+  justify-content: flex-start;
+  font-size: 40rpx;
 }
 
 .Arrowhead{
   width: 30px;
   height: 30px;
+}
+
+.iconPlane{
+  font-size: 82rpx;
 }
 
 .SearchBox{
