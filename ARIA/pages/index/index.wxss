@@ -1,32 +1,6 @@
 /**index.wxss**/
-.userinfo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
-}
-
-.userinfo-nickname {
-  color: #aaa;
-}
-
-.usermotto {
-  margin-top: 200px;
-  font-size: 50px;
-}
-
-.TopBox{
-  width: 750rpx;
-  height: 89.83*2rpx;
-}
-.TopPlane{
-  width: 100%;
+page{
+  background-color: rgb(248,248,248);
 }
 
 .ContentBox{
@@ -36,20 +10,57 @@
 }
 
 .TopBox{
+  width: 100%;
   display: flex;
-  align-items: center;
+  background: linear-gradient(rgb(0, 174, 255), rgba(7,98,193));
+}
+
+.TopPlane{
+  width: 100%;
+  background-color: #fff;
+  border: solid #fff;
+  border-radius: 20rpx;
+  margin: 10rpx;
+}
+
+.TopBox{
+  display: flex;
+  height: 400rpx;
+  position: relative;
+}
+
+.floatBox{
+  border-radius: 14rpx;
+  width: 90%;
+  border: solid #fff;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  background-color: #fff;
+  box-shadow: 0rpx 10rpx 20rpx 10rpx #888888;
+  position: absolute;
+  top: 20%;
+
 }
 
 .SelectBox{
   display: flex;
-  width: 90%;
+  width: 80%;
   justify-content: flex-start;
   font-size: 40rpx;
+  padding: 20rpx;
 }
 
-.Arrowhead{
-  width: 30px;
-  height: 30px;
+.citySelect{
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  font-size: 56rpx;
+  font-weight: bold;
+}
+
+.iconPlane{
+  margin-left: 90rpx;
 }
 
 .iconPlane{

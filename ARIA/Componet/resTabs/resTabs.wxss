@@ -2,10 +2,10 @@
 @import "../../styles/iconfont.wxss";
 
 .tabs{
-  background-color: rgba(68, 84, 109,0.4);
+  background-color: rgba(68, 84, 109,0.9);
   height: 100rpx;
   display: flex;
-  border-radius: 12rpx;
+  border-radius: 12rpx 12rpx 0 0;
 }
 
 .tabsTitle{
@@ -21,11 +21,12 @@
   align-items: center;
   flex: 1;
   height: 100%;
+  color: #fff;
 }
 
 .active{
-  color: rgb(26, 94, 139);
-  background-color: rgb(40,55,74,0.4);
+  color: rgb(14, 122, 194);
+  background-color: rgb(40,55,74,0.6);
 }
 
 /* .tabsContent{

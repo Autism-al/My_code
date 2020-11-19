@@ -5,11 +5,12 @@ Page({
    * 页面的初始数据
    */
   data: {
-    today: '请选择日期', 
+    today: '请选择日期',
     monthSelected: 0,
     dateSelected: 0,
     daySelected: [],
-  index: 0, 
+    citySelected:"福州",
+    index: 0, 
     selectArray: [{
       "id": "1",
       "text": "福州"
@@ -47,7 +48,7 @@ Page({
       today: nowDay,
       daySelected
     })
-    console.log("默认传递时间为",daySelected);
+    console.log("系统日期为",daySelected);
   },
 
  bindDateChange: function (e) {

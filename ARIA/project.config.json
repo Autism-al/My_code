@@ -89,6 +89,12 @@
         {
           "name": "收藏夹",
           "pathName": "pages/Collections/Collections",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "城市选择",
+          "pathName": "pages/city/city",
           "scene": null
         }
       ]

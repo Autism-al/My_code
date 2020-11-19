@@ -1,16 +1,13 @@
 <!--index.wxml-->
 <view class="ContentBox">
+  <!-- 顶部图片 -->
   <view class="TopBox">
     <image class="TopPlane" lazy-load="true" mode="widthFix" src="https://s1.ax1x.com/2020/11/09/BHLe4H.png" />
   </view>
-  
+  <view class="floatBox">
   <view class="SelectBox">
-    <Select prop-array='{{selectArray}}'></Select>
-    <view>
-      <!-- <image class="Arrowhead" src="https://s1.ax1x.com/2020/11/10/BbD4eK.png"></image> -->
-      <view class="iconfont iconPlane"></view>
-    </view>
-    <!-- <Select prop-array='{{selectArray}}'></Select> -->
+    <navigator class="citySelect" url="../../pages/city/city"><text>{{citySelected}}</text><view class="iconfont iconPlane"></view></navigator>
+    
   </view>
 
 <!--index.wxml--> 
@@ -24,9 +21,11 @@
 
   <view class="SearchBox">
     <!-- <button style="width:80vw" bindtap="goToResultPage">搜索</button> -->
-    <navigator url="../../pages/Result/Result?dateSelected={{daySelected[2]}}&monthSelected={{daySelected[1]}}&yearSelected={{daySelected[0]}}"><text>搜索</text></navigator>
+    <navigator url="../../pages/Result/Result?dateSelected={{daySelected[2]}}&monthSelected={{daySelected[1]}}&yearSelected={{daySelected[0]}}&citySelected={{citySelected}}">
+      <text>搜索</text>
+    </navigator>
   </view>
-  
+</view>
 </view>
 
 

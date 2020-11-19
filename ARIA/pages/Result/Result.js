@@ -5,13 +5,14 @@ Page({
     isCollect:[],
     dplace: "福州",
     aplace: "上海",
+    citySelected:"福州",
     dateSelected:"11",
     monthSelected:"11",
     yearSelected:"2020",
     typeSelected:"time",
     startX: 0, //开始坐标
     startY: 0,
-    dateList:[],    //存放日期的数组
+    dateList:[], //存放日期的数组
     nowDate:'', //系统当前日期
     resTabs:[//定义筛选栏数据和样式，样式由外部引入
       {
@@ -101,12 +102,13 @@ Page({
  * 生命周期函数--监听页面加载
  */
   onLoad: function (options) {
+    var citySelected = options.citySelected;
     var dateSelected = options.dateSelected;
     var monthSelected = options.monthSelected;
     var yearSelected = options.yearSelected;
     var daySelected = yearSelected + '-' + monthSelected + '-' + dateSelected;
     
-    this.loadTicketInf();
+    this.initTicketInf();
     var that = this;
     var myDate = new Date(); //获取系统当前时间
     var sysmonth = myDate.getMonth() + 1
@@ -119,14 +121,13 @@ Page({
     this.setData({
       dateSelected,
       monthSelected,
-      daySelected
+      daySelected,
+      citySelected
     }),
     this.directRequest();
-    console.log('系统日期：',myDate);
     console.log('系统日期（年/月/日）：',today);
-    console.log('系统日期（月）：', sysmonth);
-    console.log('系统日期（日）：', nowDate);
     console.log('搜索页面传递来的日期（日）：', monthSelected+"/"+dateSelected);
+    console.log('搜索页面传递来的城市：', citySelected);
     
  
     // 获取屏幕宽度，设置每个日期宽度
@@ -142,13 +143,13 @@ Page({
     this.initData();
   },
 
-  onShow: function(){
+/*   onShow: function(){
     let pages = getCurrentPages();
     let currentPage = pages[pages.length-1];
     let options = currentPage.options;
     const {id} = options;
     
-  },
+  }, */
  
   // 初始化日期
   initData() {
@@ -191,7 +192,7 @@ Page({
   },
 
   /* 从后台获取数据 */
-  loadTicketInf: function () {
+  initTicketInf: function () {
     for (var i = 0; i < 10; i++) {
       this.data.ticketInfList.push({
         isTouchMove: false, //默认全隐藏删除
@@ -259,25 +260,28 @@ Page({
     wx.request({
       url: 'http://airaflyscanner.site:8000/directResearch/',
       data:{
-        dcityName:"福州",
+        dcityName:this.data.citySelected,
         dtime:this.data.daySelected,
         sortType:this.data.typeSelected
       },
       success: (res)=>{
         console.log(res);
-        this.setData({
-          ticketInfList: res.data
-        }),
-        console.log(this.data.ticketInfList);
-
-        
-        /* //获取缓存中的机票收藏的数组
+        //获取缓存中的机票收藏的数组
         let collect = wx.getStorageSync('collect')||[];
-        //判断当前机票是否被收藏
-        let isCollect = collect.some(v=>v.id==this.data.ticketInf.id);
+        //判断当前页面机票是否被收藏
+        for (var index in res.data) {
+          for (var indexCollect in collect)
+          {
+            if(res.data[index].id==collect[indexCollect].id)
+            {
+              res.data[index].isCollect = true;
+            }
+          }
+       }
         this.setData({
-          isCollect
-        }) */
+          ticketInfList: res.data,
+        })
+        console.log(this.data.ticketInfList);
       }
     })
   },
@@ -320,12 +324,10 @@ Page({
   handleCollect(e){
     let isCollected = false;
     //把机票信息放入收藏数组中
-    console.log("康康e",e);
     //获取缓存中的机票收藏数组
     let collect = wx.getStorageSync('collect')||[];
     //判断机票是否被收藏过
     let index = collect.findIndex(v=>v.id==this.data.ticketInfList[e.currentTarget.dataset.index].id);
-    console.log("康康收藏过了吗",index);
     if(index!=-1){
       //从数组中删除
       collect.splice(index,1);

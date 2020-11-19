@@ -10,7 +10,7 @@
 <!-- 横向滑动日历 -->
 <view class="calendarBox">
   <scroll-view enable-flex class="scroll-view" scroll-left="{{(clickIndex-5)*itemWidth}}" scroll-x scroll-with-animation>
-  <view class='item' style='width:{{itemWidth}}px' wx:for="{{dateList}}" data-index='{{index}}' bindtap='clickDate'>
+  <view class='item' style='width:{{itemWidth}}px' wx:for="{{dateList}}" wx:key="index" data-index='{{index}}' bindtap='clickDate'>
     <view class='text-view {{item.month == monthSelected && item.day == dateSelected?"day-active":""}}'>
       <view class='day'>{{item.month+"/"+item.day}}</view>
       <view wx:if="{{item.month == sysmonth && item.day == nowDate}}">
@@ -38,7 +38,7 @@
 
 <!-- 机票信息列表，可向左滑动点击收藏 -->
 <view class="ticketList">
-<view  wx:for="{{ticketInfList}}" wx:key="{{index}}">
+<view  wx:for="{{ticketInfList}}" wx:key="id">
   <movable-area class='movable-area'>
     <movable-view direction="horizontal" class='movable-view'>
       <view class="touch-item {{item.isTouchMove ? 'touch-move-active' : ''}}" data-index="{{index}}" bindtouchstart="touchstart" bindtouchmove="touchmove">
@@ -70,4 +70,11 @@
   </movable-area>
 </view>
 </view>
+
+<!-- 尾部 -->
+<view wx:if="{{ticketInfList.length != 0}}" class="end">
+  <text>ARIA,为您找到真便宜机票！</text>
+</view>
+
+
 </view>

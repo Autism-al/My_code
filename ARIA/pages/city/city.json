@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "citylist":"../../Componet/citySelect/citySelect"
+  }
+}

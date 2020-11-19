@@ -9,7 +9,8 @@
     "pages/BudgetTicket/BudgetTicket",
     "pages/VipDay/VipDay",
     "pages/BudgetResult/BudgetResult",
-    "pages/Collections/Collections"
+    "pages/Collections/Collections",
+    "pages/city/city"
   ],
   
   "window": {

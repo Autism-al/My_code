@@ -176,3 +176,14 @@ page{
 .iconrightArrow{
   font-size: 140rpx;
 }
+
+.end{
+  height: 200rpx;
+  color: antiquewhite;
+  display: flex;
+  justify-content: center;
+}
+
+.end>text{
+  margin-top: 50rpx;
+}
