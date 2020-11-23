@@ -14,7 +14,7 @@
 </view>
 
 <view class="ticketList">
-<view  wx:for="{{collect}}" wx:key="{{index}}">
+<view  wx:for="{{items}}" wx:key="{{index}}">
   <movable-area class='movable-area'>
     <movable-view direction="horizontal" class='movable-view'>
       <view class="touch-item {{item.isTouchMove ? 'touch-move-active' : ''}}" data-index="{{index}}" bindtouchstart="touchstart" bindtouchmove="touchmove">
@@ -26,21 +26,26 @@
             <view class="dtimeDplace">
               <view class="timeInf">{{tools.sub(item.departureDate,11,16)}}</view>
               <view class="placeInf">{{item.dcityName}}</view>
+              <view class="airportInf">{{item.dairport}}</view>
             </view>
             <view class="iconfont iconrightArrow"></view>
             <!-- 到达时间地点 -->
             <view class="dtimeDplace">
               <view class="timeInf">{{tools.sub(item.arrivalDate,11,16)}}</view>
               <view class="placeInf">{{item.acityName}}</view>
+              <view class="airportInf">{{item.aairport}}</view>
             </view>
           </view>
           <!-- 票价信息 -->
           <view class="priceInf">
             <view class="money">￥</view>
             <view class="price">{{item.price}}</view>
+            
           </view>
         </view>
-        <view class="del" catchtap="del" data-index="{{index}}"><text wx:if="{{item.isCollect}}">已收藏</text><text wx:else>收藏</text></view>
+        <view class="del" catchtap="del" data-index="{{index}}">
+          <text>移除</text>
+        </view>
       </view>
     </movable-view>
   </movable-area>

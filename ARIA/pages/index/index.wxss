@@ -30,18 +30,19 @@ page{
 }
 
 .floatBox{
-  border-radius: 14rpx;
+  border-radius: 10rpx;
   width: 90%;
   border: solid #fff;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   background-color: #fff;
-  box-shadow: 0rpx 10rpx 20rpx 10rpx #888888;
+  box-shadow: 0rpx 5rpx 10rpx 5rpx #888888;
   position: absolute;
-  top: 20%;
-
+  top: 220rpx;
 }
+
+
 
 .SelectBox{
   display: flex;
@@ -59,13 +60,12 @@ page{
   font-weight: bold;
 }
 
-.iconPlane{
+.iconnormalPlane{
   margin-left: 90rpx;
+  font-size: 90rpx;
+  color: #59A5EE;
 }
 
-.iconPlane{
-  font-size: 82rpx;
-}
 
 .SearchBox{
   width: 80%;
@@ -93,5 +93,123 @@ page{
   margin:20rpx;
   padding:20rpx;
   justify-content: flex-start;
-  font-size: 40rpx;
+  font-size: 56rpx;
 }
+
+.remindBox{
+  position: absolute;
+  top: 700rpx;
+  border: solid #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  background-color: #fff;
+  box-shadow: 0rpx 2rpx 6rpx 2rpx #8888886b;
+  width: 90%;
+  border-radius: 10rpx;
+}
+
+.remindTitle{
+  margin: 18rpx;
+}
+
+.title1{
+  margin-bottom: 18rpx;
+  font-weight: bold;
+}
+
+.title2{
+  font-size: 20rpx;
+  color: rgba(0, 0, 0, 0.425);
+}
+
+.remindContent{
+  border: solid #59A5EE;
+  background-color: #59A5EE;
+  color: #fff;
+  border-radius: 50rpx;
+  height: 60%;
+  padding: 8rpx 18rpx;
+  margin:0rpx 50rpx 0rpx 0rpx;
+  font-size: 26rpx;
+}
+
+
+.recoBox{
+  position: absolute;
+  top: 880rpx;
+  width: 100vw;
+  border: #fff solid;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.recoTitle{
+  width: 90%;
+  margin: 30rpx 0;
+}
+
+.iconrefire1{
+  color: #59A5EE;
+  font-size: 38rpx;
+}
+
+.recoBox{
+  margin-bottom: 50rpx;
+}
+
+.recoTitleName{
+  margin-left: 18rpx;
+  font-size: 38rpx;
+  font-weight: bold;
+}
+
+.recoContent{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 0rpx 20rpx;
+}
+
+.recoInf{
+  width: 48%;
+  border-radius: 12rpx;
+  border: solid #fff;
+  box-shadow: 0rpx 2rpx 6rpx 2rpx #8888886b;
+  margin-bottom: 20rpx;
+}
+
+.place{
+  margin: 10rpx 0rpx 0rpx 10rpx;
+}
+
+.dplace{
+  font-weight: bold;
+}
+
+.iconrateArrow{
+  margin: 0rpx 20rpx 0rpx 20rpx;
+  color: #888888;
+  font-weight: bolder;
+}
+
+.aplace{
+  font-weight: bold;
+}
+
+.priceRate{
+  color: rgb(244, 132, 32);
+}
+
+.price{
+  font-size: 36rpx;
+}
+
+.rate{
+  margin-left: 10rpx;
+  font-size: 24rpx;
+}
+

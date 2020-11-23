@@ -1,0 +1,33 @@
+/*
+注： arg1 乘数 arg2 被乘数
+*/
+var multiplication = function (arg1, arg2) {
+  var a = arg1.toString();
+  var b = arg2.toString();
+
+  var n = 0;
+  var m = 0;
+
+  if (a.indexOf(".") != -1){
+    var c = a.split(".")[1]; n = c.length;
+  }
+
+  if (b.indexOf(".") != -1) {
+    var d = b.split(".")[1]; m = d.length;
+  }
+
+  var e = parseInt(arg1.toString().replace(".", ""));
+  var f = parseInt(arg2.toString().replace(".", ""));
+
+  var g = n+m;
+  var h = "";
+  for(var i = 0; i < g ; i ++){ h += "0"; }
+  var i = parseInt("1"+h);
+  
+  var num = e * f / i;
+  return num;
+}
+
+module.exports = {
+  multiplication: multiplication
+}

@@ -6,27 +6,13 @@ Page({
    */
   data: {
     today: '请选择日期',
+    ticketInfList:[],
     monthSelected: 0,
     dateSelected: 0,
-    daySelected: [],
+    daySelected: "2020-11-23",
     citySelected:"福州",
+    typeSelected:"rate",
     index: 0, 
-    selectArray: [{
-      "id": "1",
-      "text": "福州"
-  }, {
-      "id": "2",
-      "text": "厦门"
-  }, {
-    "id": "3",
-    "text": "三明"
-}, {
-  "id": "4",
-  "text": "广州"
-}, {
-  "id": "5",
-  "text": "上海"
-}]
   },
   
   goToResultPage: function(e){
@@ -39,11 +25,10 @@ Page({
     const nowDateTime = new Date();
     let nowDay = '';
     let daySelected = nowDateTime.toLocaleDateString().split("/");
-    nowDay += nowDateTime.getFullYear();
-    nowDay += "-";
     nowDay += nowDateTime.getMonth()+1;
-    nowDay += "-";
+    nowDay += "月";
     nowDay += nowDateTime.getDate();
+    nowDay += "日";
     this.setData({
       today: nowDay,
       daySelected
@@ -53,9 +38,10 @@ Page({
 
  bindDateChange: function (e) {
    let daySelected = e.detail.value.split("-");
+   let today = daySelected[1]+"月"+daySelected[2]+"日";
    console.log(daySelected);
   this.setData({ 
-   today: e.detail.value,
+   today,
    daySelected
   }) 
     
@@ -66,54 +52,41 @@ Page({
    */
   onLoad: function (options) {
     this.initDate();
+    this.directRequest();
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-    
+  directRequest: function(){
+    //请求直达机票信息用于首页推荐
+    console.log("向接口请求的日期",this.data.today);
+    console.log("向接口请求的地点",this.data.citySelected);
+    console.log("向接口请求的类型",this.data.typeSelected);
+    wx.request({
+      url: 'http://airaflyscanner.site:8000/directResearch/',
+      data:{
+        dcityName:this.data.citySelected,
+        dtime:"2020-11-25",
+        sortType:this.data.typeSelected
+      },
+      success: (res)=>{
+        console.log(res);
+        //获取缓存中的机票收藏的数组
+        let collect = wx.getStorageSync('collect')||[];
+        //判断当前页面机票是否被收藏,若是已被收藏，就不该出现在推荐中
+        for (var index in res.data) {
+          for (var indexCollect in collect)
+          {
+            if(res.data[index].id==collect[indexCollect].id)
+            {
+              res.data[index].isCollect = true;
+            }
+          }
+       }
+        this.setData({
+          ticketInfList: res.data,
+        })
+        console.log(this.data.ticketInfList);
+      }
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-    
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-    
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-    
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-    
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-    
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-    
-  }
 })

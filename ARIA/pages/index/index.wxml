@@ -1,32 +1,69 @@
-<!--index.wxml-->
+
+<wxs module="mathop" src="../../wxs/math.wxs"></wxs>
+
 <view class="ContentBox">
   <!-- 顶部图片 -->
   <view class="TopBox">
     <image class="TopPlane" lazy-load="true" mode="widthFix" src="https://s1.ax1x.com/2020/11/09/BHLe4H.png" />
   </view>
+  <!-- 浮动在顶部盒子之上 -->
   <view class="floatBox">
-  <view class="SelectBox">
-    <navigator class="citySelect" url="../../pages/city/city"><text>{{citySelected}}</text><view class="iconfont iconPlane"></view></navigator>
-    
+    <!-- 城市选择 -->
+    <view class="SelectBox">
+      <navigator class="citySelect" url="../../pages/city/city"><text>{{citySelected}}</text><view class="iconfont iconnormalPlane"></view></navigator>
+    </view>
+    <!-- 日期选择 -->
+    <view class="DateBox"> 
+    <picker mode="date" value="{{date}}" start="2020/11/11" end="2025/11/11" bindchange="bindDateChange"> 
+      <view class="picker"> 
+      {{today}} 
+      </view> 
+    </picker> 
+    </view> 
+    <!-- 搜索 -->
+    <view class="SearchBox">
+      <navigator url="../../pages/Result/Result?dateSelected={{daySelected[2]}}&monthSelected={{daySelected[1]}}&yearSelected={{daySelected[0]}}&citySelected={{citySelected}}">
+        <text>搜索</text>
+      </navigator>
+    </view>
   </view>
 
-<!--index.wxml--> 
-<view class="DateBox"> 
- <picker mode="date" value="{{date}}" start="2020/11/11" end="2025/11/11" bindchange="bindDateChange"> 
-  <view class="picker"> 
-   {{today}} 
-  </view> 
- </picker> 
-</view> 
-
-  <view class="SearchBox">
-    <!-- <button style="width:80vw" bindtap="goToResultPage">搜索</button> -->
-    <navigator url="../../pages/Result/Result?dateSelected={{daySelected[2]}}&monthSelected={{daySelected[1]}}&yearSelected={{daySelected[0]}}&citySelected={{citySelected}}">
-      <text>搜索</text>
-    </navigator>
+  <!-- 提醒 -->
+  <view class="remindBox">
+    <view class="remindTitle">
+      <view class="title1">低价提醒</view>
+      <view class="title2">航班降价自动推送</view>
+    </view>
+    <navigator class="remindContent">添加提醒</navigator>
   </view>
 </view>
-</view>
+
+  <!-- 推荐 -->
+  <view class="recoBox">
+    <view class="recoTitle">
+      <text class="iconfont iconrefire1"> </text>
+      <text class="recoTitleName">精选低价</text>
+    </view>
+    <view class="recoContent">
+      <view class="recoInf" wx:for="{{ticketInfList}}" wx:key="index" wx:if="{{index<6}}">
+        <view class="place">
+          <text class="dplace">{{item.dcityName}}</text>
+          <text class="iconfont iconrateArrow"></text>
+          <text class="aplace">{{item.acityName}}</text>
+        </view>
+        <view class="priceRate">
+        <text class="money">￥</text>
+        <text class="price">{{item.price}}</text>
+        <text class="rate">{{mathop.multiplication(item.rate,10)}}折</text>
+        </view>
+      </view>
+    </view>
+    <view class="moreInf">
+      <navigator class="" url="../../pages/Result/Result?dateSelected={{daySelected[2]}}&monthSelected={{daySelected[1]}}&yearSelected={{daySelected[0]}}&citySelected={{citySelected}}">
+        查看更多
+      </navigator>
+    </view>
+  </view>
 
 
 

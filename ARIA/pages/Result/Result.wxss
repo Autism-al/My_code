@@ -9,8 +9,9 @@ page{
 .TopBox{
   width: 100%;
   display: flex;
-  background: linear-gradient(rgb(0, 174, 255), rgba(7,98,193));
+  background: linear-gradient(rgb(0, 110, 255), rgba(7,98,193));
 }
+
 .TopPlane{
   width: 100%;
   background-color: #fff;
@@ -132,16 +133,28 @@ page{
   font-size: 36rpx;
 }
 
+.airportInf{
+  font-size: 26rpx;
+  color: rgba(0, 0, 0, 0.411);
+}
+
 .priceInf{
   flex: 2;
   font-size: 60rpx;
   display: flex;
   color: rgb(244, 132, 32);
   align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .money{
   font-size: 30rpx;
+}
+
+.rate{
+  margin-left: 10rpx;
+  font-size: 24rpx;
 }
 
 .col {

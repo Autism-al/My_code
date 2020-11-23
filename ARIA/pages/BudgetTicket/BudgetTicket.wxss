@@ -1,1 +1,140 @@
-/* pages/BudgetTicket/BudgetTicket.wxss */
+/**index.wxss**/
+page{
+  background-color: rgb(248,248,248);
+}
+
+.ContentBox{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.TopBox{
+  width: 100%;
+  display: flex;
+  background: linear-gradient(rgb(0, 174, 255), rgba(7,98,193));
+}
+
+.TopPlane{
+  width: 100%;
+  background-color: #fff;
+  border: solid #fff;
+  border-radius: 20rpx;
+  margin: 10rpx;
+}
+
+.TopBox{
+  display: flex;
+  height: 400rpx;
+  position: relative;
+}
+
+.floatBox{
+  border-radius: 10rpx;
+  width: 90%;
+  border: solid #fff;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  background-color: #fff;
+  box-shadow: 0rpx 5rpx 10rpx 5rpx #888888;
+  position: absolute;
+  top: 220rpx;
+}
+
+.remindBox{
+  position: absolute;
+  border: solid #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  background-color: #fff;
+  box-shadow: 0rpx 5rpx 10rpx 5rpx #888888;
+  width: 90%;
+  border-radius: 10rpx;
+  top: 700rpx;
+}
+
+.remindTitle{
+  margin: 18rpx;
+}
+
+.title1{
+  margin-bottom: 18rpx;
+  font-weight: bold;
+}
+
+.title2{
+  font-size: 20rpx;
+  color: rgba(0, 0, 0, 0.425);
+}
+
+.remindContent{
+  border: solid #59A5EE;
+  background-color: #59A5EE;
+  color: #fff;
+  border-radius: 50rpx;
+  height: 60%;
+  padding: 8rpx 18rpx;
+  margin:0rpx 50rpx 0rpx 0rpx;
+  font-size: 26rpx;
+}
+
+.SelectBox{
+  display: flex;
+  width: 80%;
+  justify-content: space-between;
+  font-size: 40rpx;
+  padding: 20rpx;
+}
+
+.citySelect1{
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  font-size: 56rpx;
+  font-weight: bold;
+}
+.citySelect2{
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  font-size: 56rpx;
+  font-weight: bold;
+  
+}
+.icondirectPlane{
+  font-size: 90rpx;
+  color: #59A5EE;
+}
+
+
+.SearchBox{
+  width: 80%;
+  border-radius: 18rpx;
+  margin: 30rpx 30rpx 30rpx 30rpx;
+  background-color: #59A5EE;
+  color:white;
+  line-height: 80rpx;
+}
+
+.SearchBox navigator{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.SearchBox navigator text{
+  font-size: 40rpx;
+}
+
+.DateBox{
+  width: 80%;
+  border-bottom:#E6E6E6 1px solid;
+  margin:20rpx;
+  padding:20rpx;
+  justify-content: flex-start;
+  font-size: 56rpx;
+}

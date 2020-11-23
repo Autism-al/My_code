@@ -3,8 +3,6 @@ Page({
   data: {
     ticketInfList:[],
     isCollect:[],
-    dplace: "福州",
-    aplace: "上海",
     citySelected:"福州",
     dateSelected:"11",
     monthSelected:"11",
@@ -17,20 +15,20 @@ Page({
     resTabs:[//定义筛选栏数据和样式，样式由外部引入
       {
         id:0,
-        value:"仅特价",
-        class:"iconfont icontejiajipiaobiaoqian",
-        isActive:false
-      },
-      {
-        id:1,
         value:"时间",
         class:"iconfont iconhuabanfuben",
         isActive:true,
       },
       {
-        id:2,
+        id:1,
         value:"价格",
         class:"iconfont iconjiageguanxiguanli",
+        isActive:false
+      },
+      {
+        id:2,
+        value:"折扣",
+        class:"iconfont iconrate",
         isActive:false
       }
     ]
@@ -57,7 +55,7 @@ Page({
     resTabs.forEach((v,i)=>i==index?v.isActive=true:v.isActive=false)
     this.setData({
       resTabs,
-      typeSelected: index == 1 ? 'time':'price'
+      typeSelected: index == 0 ? 'time':(index == 1?'price':'rate')
     })
     this.directRequest();
     console.log(this.data.typeSelected);
@@ -285,42 +283,7 @@ Page({
       }
     })
   },
-
   //点击触发收藏事件
-  /* handleCollect(){
-    let isCollect = false;
-    //获取缓存中的机票收藏数组
-    let collect = wx.getStorageSync('collect')||[];
-    //判断机票是否被收藏过
-    let index = collect.findIndex(v=>v.id==this.ticketInf.id);
-    //若Index!=-1表示已收藏
-    if(index!=-1){
-      //从数组中删除
-      collect.splice(index,1);
-      isCollect = false;
-      wx-wx.showToast({
-        title: '取消成功',
-        icon: 'success',
-        mask: true
-      })
-    }
-    else{
-      //添加到数组
-      collect.push(this.ticketInf);
-      isCollect = true;
-      wx-wx.showToast({
-        title: '收藏成功',
-        icon: 'success',
-        mask: true
-      })
-    }
-    // 没有后台接口，α版本暂且存放在缓存中
-    wx-wx.setStorageSync('collect', collect);
-    //修改data中的isCollect属性
-    this.setData({
-      isCollect
-    })
-  } */
   handleCollect(e){
     let isCollected = false;
     //把机票信息放入收藏数组中

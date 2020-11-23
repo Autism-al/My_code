@@ -70,18 +70,32 @@ page{
   border-radius: 16rpx;
   border: white solid;
   background-color: white;
-  
+  flex-wrap: wrap;
 }
 
-.favorites{
+.favorites,.userService{
   width: 100%;
   border-bottom: rgba(128, 128, 128, 0.164) solid 1px;
 }
 
-.favorites>navigator{
+.iconticketHolder,.iconservice{
+  font-size: 56rpx;
+}
+
+.userMain navigator{
   font-size: 36rpx;
   padding: 20rpx 30rpx;
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.serviceButton{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  font-size: 36rpx;
+  padding: 0rpx 30rpx;
+  
 }

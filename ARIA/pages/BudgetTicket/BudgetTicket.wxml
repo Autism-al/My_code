@@ -1,4 +1,46 @@
-<!--pages/BudgetTicket/BudgetTicket.wxml-->
-<view>
-    <image mode="widthFix" src="https://files-cdn.cnblogs.com/files/autism-al/gaitubao_PlaneTop_bmp.bmp" />
+<view class="ContentBox">
+  <!-- 顶部图片 -->
+  <view class="TopBox">
+    <image class="TopPlane" lazy-load="true" mode="widthFix" src="https://s1.ax1x.com/2020/11/09/BHLe4H.png" />
   </view>
+  <!-- 浮动在顶部盒子之上 -->
+  <view class="floatBox">
+    <!-- 城市选择 -->
+    <view class="SelectBox">
+      <navigator class="citySelect1" url="../../pages/city/city"><text>{{dcitySelected}}</text></navigator>
+      <view class="iconfont icondirectPlane"></view>
+      <navigator class="citySelect2" url="../../pages/city/city"><text>{{acitySelected}}</text></navigator>
+    </view>
+    
+
+    <!-- 日期选择 -->
+    <view class="DateBox"> 
+    <picker mode="date" value="{{date}}" start="2020/11/11" end="2025/11/11" bindchange="bindDateChange"> 
+      <view class="picker"> 
+      {{today}} 
+      </view> 
+    </picker> 
+    </view> 
+    <!-- 搜索 -->
+    <view class="SearchBox">
+      <navigator url="../../pages/Result/Result?dateSelected={{daySelected[2]}}&monthSelected={{daySelected[1]}}&yearSelected={{daySelected[0]}}&citySelected={{citySelected}}">
+        <text>搜索</text>
+      </navigator>
+    </view>
+  </view>
+
+  <!-- 提醒 -->
+  <view class="remindBox">
+    <view class="remindTitle">
+      <view class="title1">低价提醒</view>
+      <view class="title2">航班降价自动推送</view>
+    </view>
+    <navigator class="remindContent">添加提醒</navigator>
+  </view>
+</view>
+
+
+
+ 
+  
+

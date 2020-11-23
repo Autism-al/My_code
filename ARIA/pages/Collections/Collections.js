@@ -18,7 +18,7 @@ Page({
     //从缓存中读取收藏信息
     let collect = wx.getStorageSync('collect')||[];
     this.setData({
-      collect
+      items: collect
     })
   },
     //手指触摸动作开始 记录起点X坐标
@@ -74,8 +74,12 @@ Page({
     //删除事件
     del: function (e) {
       this.data.items.splice(e.currentTarget.dataset.index, 1)
+      let collect = this.data.items;
       this.setData({
-        items: this.data.items
+        items: this.data.items,
       })
+      //更新缓存
+      console.log("康康缓存内容",collect);
+      wx-wx.setStorageSync('collect', collect);
     },
 })
