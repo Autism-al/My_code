@@ -1,6 +1,8 @@
 // pages/Result/Result.js
+const network = require("../../utils/network.js");
 Page({
   data: {
+    loading: true,
     ticketInfList:[],
     isCollect:[],
     citySelected:"福州",
@@ -255,6 +257,7 @@ Page({
   directRequest: function(){
     //请求直达机票信息
     console.log("向接口请求的日期",this.data.daySelected);
+    console.log("向接口请求的城市",this.data.citySelected);
     wx.request({
       url: 'http://airaflyscanner.site:8000/directResearch/',
       data:{
@@ -278,6 +281,7 @@ Page({
        }
         this.setData({
           ticketInfList: res.data,
+          loading: false
         })
         console.log(this.data.ticketInfList);
       }

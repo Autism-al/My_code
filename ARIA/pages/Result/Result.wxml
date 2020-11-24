@@ -3,7 +3,7 @@
 <wxs src="../../wxs/subutils.wxs" module="tools" />
 <wxs module="mathop" src="../../wxs/math.wxs"></wxs>
 
-<view class="ContentBox">
+<view class="{{loading ? 'ContentBoxLoading' : 'ContentBox'}}">
 <!-- 顶部图片 -->
   <view class="TopBox">
     <image class="TopPlane" lazy-load="true" mode="widthFix" src="https://s1.ax1x.com/2020/11/09/BHLe4H.png" />
@@ -29,13 +29,14 @@
 </resTabs>
 
 <!-- 机票信息列表，可向左滑动点击收藏 -->
-<view class="ticketList">
-<view  wx:for="{{ticketInfList}}" wx:key="id">
+<view wx:if="{{!loading}}" class="ticketList">
+<view wx:for="{{ticketInfList}}" wx:key="id">
   <movable-area class='movable-area'>
     <movable-view direction="horizontal" class='movable-view'>
+
       <view class="touch-item {{item.isTouchMove ? 'touch-move-active' : ''}}" data-index="{{index}}" bindtouchstart="touchstart" bindtouchmove="touchmove">
         <!-- 机票信息 -->
-        <view class="ticketInf">
+        <view  class="ticketInf">
           <!-- 时间地点 -->
           <view class="timePlace">
             <!-- 出发时间地点 -->
@@ -56,6 +57,7 @@
           <view class="priceInf">
             <view class="money">￥</view>
             <view class="price">{{item.price}}</view>
+            <text>\n</text>
             <view class="rate">{{mathop.multiplication(item.rate,10)}}折</view>
           </view>
         </view>
@@ -64,6 +66,11 @@
     </movable-view>
   </movable-area>
 </view>
+</view>
+ <!-- 如果数据加载的慢，显示加载画面 -->
+<view class="loadingBox" wx:else="{{loading}}">
+  <view class="loadingtext">正在努力寻找机票中!</view>
+<image class="loadingGif" src="https://s3.ax1x.com/2020/11/24/DNXixP.gif"></image>
 </view>
 
 <!-- 尾部 -->

@@ -57,12 +57,14 @@
         <text class="rate">{{mathop.multiplication(item.rate,10)}}折</text>
         </view>
       </view>
+        <view class="moreInfBox">
+        <navigator class="moreInf" url="../../pages/Result/Result?dateSelected={{daySelected[2]}}&monthSelected={{daySelected[1]}}&yearSelected={{daySelected[0]}}&citySelected={{citySelected}}">
+          查看更多
+        </navigator>
+      </view>
     </view>
-    <view class="moreInf">
-      <navigator class="" url="../../pages/Result/Result?dateSelected={{daySelected[2]}}&monthSelected={{daySelected[1]}}&yearSelected={{daySelected[0]}}&citySelected={{citySelected}}">
-        查看更多
-      </navigator>
-    </view>
+
+    
   </view>
 
 

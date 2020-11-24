@@ -6,6 +6,10 @@ page{
   background-color:rgba(7,98,193) ;
 }
 
+.ContentBoxLoading{
+  background-color: #fff;
+}
+
 .TopBox{
   width: 100%;
   display: flex;
@@ -143,8 +147,8 @@ page{
   font-size: 60rpx;
   display: flex;
   color: rgb(244, 132, 32);
-  align-items: center;
   justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
 }
 
@@ -155,6 +159,8 @@ page{
 .rate{
   margin-left: 10rpx;
   font-size: 24rpx;
+  width: 50%;
+  padding-left: 30rpx;
 }
 
 .col {
@@ -190,6 +196,21 @@ page{
   font-size: 140rpx;
 }
 
+.loadingBox{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.loadingtext{
+  font-size: 40rpx;
+  margin-top: 26rpx;
+}
+
+.loadingGif{
+  width: 100%;
+}
+
 .end{
   height: 200rpx;
   color: antiquewhite;
@@ -199,4 +220,5 @@ page{
 
 .end>text{
   margin-top: 50rpx;
+  color: #fff;
 }

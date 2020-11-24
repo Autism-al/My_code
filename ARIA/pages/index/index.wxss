@@ -213,3 +213,16 @@ page{
   font-size: 24rpx;
 }
 
+.moreInfBox{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.moreInf{
+  font-size: 36rpx;
+  padding: 15rpx 30vw ;
+}
+
+

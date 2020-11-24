@@ -9,6 +9,7 @@ Page({
     ticketInfList:[],
     monthSelected: 0,
     dateSelected: 0,
+    /* daySelected存放用户选择的日期字符串,页面间传值时可直接以数组下标传送 */
     daySelected: "2020-11-23",
     citySelected:"福州",
     typeSelected:"rate",
@@ -54,17 +55,22 @@ Page({
     this.initDate();
     this.directRequest();
   },
+  onShow: function (){
+    this.directRequest();
+  },
 
   directRequest: function(){
     //请求直达机票信息用于首页推荐
     console.log("向接口请求的日期",this.data.today);
     console.log("向接口请求的地点",this.data.citySelected);
-    console.log("向接口请求的类型",this.data.typeSelected);
+    console.log("向接口请求的排序类型",this.data.typeSelected);
+    let daySelected = this.data.daySelected[0] + "-" + this.data.daySelected[1] + "-" + this.data.daySelected[2];
+
     wx.request({
       url: 'http://airaflyscanner.site:8000/directResearch/',
       data:{
         dcityName:this.data.citySelected,
-        dtime:"2020-11-25",
+        dtime:daySelected,
         sortType:this.data.typeSelected
       },
       success: (res)=>{

@@ -50,7 +50,7 @@ page{
   align-items: center;
   flex-wrap: wrap;
   background-color: #fff;
-  box-shadow: 0rpx 5rpx 10rpx 5rpx #888888;
+  box-shadow: 0rpx 2rpx 6rpx 2rpx #8888886b;
   width: 90%;
   border-radius: 10rpx;
   top: 700rpx;
