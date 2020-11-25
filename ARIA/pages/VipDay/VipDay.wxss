@@ -1,1 +1,92 @@
-/* pages/VipDay/VipDay.wxss */
+/* pages/VIP/VIP.wxss */
+page{
+  height: 100%;
+}
+
+.ContentBox{
+  height: 100%;
+  background-color: rgba(7,98,193);
+}
+
+.VIPInf{
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5%;
+  margin-bottom: 3%;
+  margin-left: 3%;
+  margin-right: 3%;
+  border-radius: 20rpx;
+}
+
+.LineOne{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%; 
+  height: 100;
+  font-size: 20px;
+}
+
+.Logo{
+  height: 100;
+  width: 50%;
+}
+
+.Day{
+  width: 45%;
+  display: flex;
+  flex: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.Date{
+  color: red;
+  font-weight: bold;
+}
+
+.LineTwo{
+  font-size: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+}
+
+.TOneInf{
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 50%;
+}
+
+.TOnePrice{
+  color: red;
+  font-weight: bold;
+}
+
+.TTwoInf{
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 50%;
+}
+
+.TTwoPrice{
+  color: red;
+  font-weight: bold;
+}
+
+.Warning{
+  margin-top: 10%;
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: larger;
+  color: aliceblue;
+}
