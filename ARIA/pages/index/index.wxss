@@ -12,15 +12,24 @@ page{
 .TopBox{
   width: 100%;
   display: flex;
-  background: linear-gradient(rgb(0, 174, 255), rgba(7,98,193));
+  justify-content: center;
+  /* background: linear-gradient(rgb(0, 174, 255), rgba(7,98,193)); */
 }
 
 .TopPlane{
   width: 100%;
-  background-color: #fff;
-  border: solid #fff;
-  border-radius: 20rpx;
-  margin: 10rpx;
+  height: 180px;
+  /* background-color: #fff; */
+  /* border: solid #fff; */
+ /*  border-radius: 20rpx; */
+  /* margin: 10rpx; */
+}
+
+.TopTextBox{
+  position: absolute;
+  color: #fff;
+  font-size: 40rpx;
+  top: 60rpx;
 }
 
 .TopBox{

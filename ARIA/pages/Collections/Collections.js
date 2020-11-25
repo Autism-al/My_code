@@ -1,4 +1,4 @@
-// pages/Collections/Collections.js
+const app = getApp();
 Page({
 
   /**
@@ -9,6 +9,7 @@ Page({
     items: [],
     startX: 0, //开始坐标
     startY: 0,
+
   },
 
   /**
@@ -16,10 +17,7 @@ Page({
    */
   onLoad: function (options) {
     //从缓存中读取收藏信息
-    let collect = wx.getStorageSync('collect')||[];
-    this.setData({
-      items: collect
-    })
+    this.getCollectInf();
   },
     //手指触摸动作开始 记录起点X坐标
     touchstart: function (e) {
@@ -73,13 +71,38 @@ Page({
     },
     //删除事件
     del: function (e) {
-      this.data.items.splice(e.currentTarget.dataset.index, 1)
+      /* console.log("康康点击会发生什么e？",e); */
+      let index = e.currentTarget.dataset.index;
+      wx.request({
+        url: 'http://airaflyscanner.site:8000/concernList/',
+        method: "DELETE",
+        data:{
+          openid:app.globalData.userOpenId,
+          ticketId: this.data.items[index].id,
+        },
+        success: (res)=>{
+          console.log(res);
+      }
+      })
+      this.data.items.splice(e.currentTarget.dataset.index, 1);
       let collect = this.data.items;
       this.setData({
         items: this.data.items,
       })
-      //更新缓存
-      console.log("康康缓存内容",collect);
-      wx-wx.setStorageSync('collect', collect);
     },
+
+    getCollectInf: function(){
+      wx.request({
+        url: 'http://airaflyscanner.site:8000/concernList/',
+        data:{
+          openid:app.globalData.userOpenId
+        },
+        success: (res)=>{
+          console.log(res);
+          this.setData({
+            items:res.data
+          })
+      }
+      })
+    }
 })

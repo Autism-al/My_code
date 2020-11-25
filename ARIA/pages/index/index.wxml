@@ -4,7 +4,14 @@
 <view class="ContentBox">
   <!-- 顶部图片 -->
   <view class="TopBox">
-    <image class="TopPlane" lazy-load="true" mode="widthFix" src="https://s1.ax1x.com/2020/11/09/BHLe4H.png" />
+    <image class="TopPlane" lazy-load="true"  src="https://s3.ax1x.com/2020/11/25/DUM44H.png" />
+    <!-- <view class="TopTextBox">
+      <view class="TopText1">Hi,</view>
+      <view class="TopText2">
+      让ARIA帮你寻找特价机票吧
+      </view>
+    </view> -->
+    
   </view>
   <!-- 浮动在顶部盒子之上 -->
   <view class="floatBox">
@@ -20,6 +27,9 @@
       </view> 
     </picker> 
     </view> 
+    <!-- 时间段选择 -->
+    
+
     <!-- 搜索 -->
     <view class="SearchBox">
       <navigator url="../../pages/Result/Result?dateSelected={{daySelected[2]}}&monthSelected={{daySelected[1]}}&yearSelected={{daySelected[0]}}&citySelected={{citySelected}}">

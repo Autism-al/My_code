@@ -1,8 +1,10 @@
-// pages/Result/Result.js
+const app = getApp()
 const network = require("../../utils/network.js");
 Page({
   data: {
+    collect:[],
     loading: true,
+    ticketIdSelected: 0,
     ticketInfList:[],
     isCollect:[],
     citySelected:"福州",
@@ -258,6 +260,8 @@ Page({
     //请求直达机票信息
     console.log("向接口请求的日期",this.data.daySelected);
     console.log("向接口请求的城市",this.data.citySelected);
+    var collect = this.getCollectInf();
+    console.log("康康收藏里有什么",collect);
     wx.request({
       url: 'http://airaflyscanner.site:8000/directResearch/',
       data:{
@@ -266,9 +270,10 @@ Page({
         sortType:this.data.typeSelected
       },
       success: (res)=>{
+        this.getCollectInf();
         console.log(res);
         //获取缓存中的机票收藏的数组
-        let collect = wx.getStorageSync('collect')||[];
+        let collect = this.data.collect;
         //判断当前页面机票是否被收藏
         for (var index in res.data) {
           for (var indexCollect in collect)
@@ -289,36 +294,89 @@ Page({
   },
   //点击触发收藏事件
   handleCollect(e){
+    if(!app.globalData.userOpenId){
+      wx.showToast({
+        title: '请先登录再使用收藏功能',
+        icon: 'none',
+        mask: false
+      })
+      return;
+    }
+    //向后台发送POST请求将机票添加到该用户的收藏列表
+    this.getCollectInf();
+    let collect = this.data.collect;
     let isCollected = false;
-    //把机票信息放入收藏数组中
-    //获取缓存中的机票收藏数组
-    let collect = wx.getStorageSync('collect')||[];
     //判断机票是否被收藏过
     let index = collect.findIndex(v=>v.id==this.data.ticketInfList[e.currentTarget.dataset.index].id);
     if(index!=-1){
-      //从数组中删除
-      collect.splice(index,1);
+      //从数据中删除
+      this.collectDel(e.currentTarget.dataset.index);
       isCollected = false;
       wx-wx.showToast({
         title: '取消成功',
         icon: 'success',
-        mask: true
+        mask: false
       })
     }
     else{
-      //添加到数组
-      collect.push(this.data.ticketInfList[e.currentTarget.dataset.index])
+      //添加到数据库
+      this.collectAdd(e.currentTarget.dataset.index);
       isCollected = true;
       wx-wx.showToast({
         title: '收藏成功',
         icon: 'success',
-        mask: true
+        mask: false
       })
     }
-    // 没有后台接口，α版本暂且存放在缓存中
-    wx-wx.setStorageSync('collect', collect);
     //修改data中的isCollect[]属性
     this.data.ticketInfList[e.currentTarget.dataset.index].isCollect = isCollected;
+  },
+
+  /* 获取收藏信息 */
+  getCollectInf: function(){
+    let collect = [];
+    /* console.log("获取收藏信息时的openid",app.globalData.userOpenId); */
+    wx.request({
+      url: 'http://airaflyscanner.site:8000/concernList/',
+      data:{
+        openid: app.globalData.userOpenId
+      },
+      success: (res)=>{
+        //从数据库获取收藏信息
+        this.setData({
+          collect: res.data
+        })
+    }
+    })
+  },
+
+  //增加收藏
+  collectAdd: function(index){
+    wx.request({
+      url: 'http://airaflyscanner.site:8000/concernList/',
+      method:"POST",
+      data:{
+        ticketId: this.data.ticketInfList[index].id,
+        openid: app.globalData.userOpenId
+      },
+      success: (res)=>{
+        console.log(res);
+      }
+    })
+  },
+
+  /* 删除收藏 */
+  collectDel: function(index){
+    wx.request({
+      url: 'http://airaflyscanner.site:8000/concernList/',
+      method: "DELETE",
+      data:{
+        ticketId: this.data.ticketInfList[index].id,
+        openid: app.globalData.userOpenId
+      },
+      success: (res)=>{
+        console.log(res);
+    }
+    })
   }
-  
 })

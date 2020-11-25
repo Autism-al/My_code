@@ -126,7 +126,10 @@ page{
   display: flex;
   flex-direction: column;
   align-items: center;
-  
+}
+
+.iconrightArrow{
+  color: #8888885d;
 }
 
 .timeInf{

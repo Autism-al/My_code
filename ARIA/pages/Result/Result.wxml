@@ -6,7 +6,7 @@
 <view class="{{loading ? 'ContentBoxLoading' : 'ContentBox'}}">
 <!-- 顶部图片 -->
   <view class="TopBox">
-    <image class="TopPlane" lazy-load="true" mode="widthFix" src="https://s1.ax1x.com/2020/11/09/BHLe4H.png" />
+    <!-- <image class="TopPlane" lazy-load="true" mode="widthFix" src="https://s1.ax1x.com/2020/11/09/BHLe4H.png" /> -->
   </view>
 <!-- 横向滑动日历 -->
 <view class="calendarBox">
