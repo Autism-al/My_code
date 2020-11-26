@@ -127,7 +127,6 @@ Page({
       citySelected
     }),
     this.directRequest();
-    console.log('系统日期（年/月/日）：',today);
     console.log('搜索页面传递来的日期（日）：', monthSelected+"/"+dateSelected);
     console.log('搜索页面传递来的城市：', citySelected);
     
@@ -260,8 +259,7 @@ Page({
     //请求直达机票信息
     console.log("向接口请求的日期",this.data.daySelected);
     console.log("向接口请求的城市",this.data.citySelected);
-    var collect = this.getCollectInf();
-    console.log("康康收藏里有什么",collect);
+    this.getCollectInf();
     wx.request({
       url: 'http://airaflyscanner.site:8000/directResearch/',
       data:{
@@ -270,13 +268,14 @@ Page({
         sortType:this.data.typeSelected
       },
       success: (res)=>{
-        this.getCollectInf();
+        
         console.log(res);
         //获取缓存中的机票收藏的数组
         let collect = this.data.collect;
+        console.log("康康收藏里有什么",collect);
         //判断当前页面机票是否被收藏
-        for (var index in res.data) {
-          for (var indexCollect in collect)
+        for (var indexCollect in collect) {
+          for (var index in res.data)
           {
             if(res.data[index].id==collect[indexCollect].id)
             {
@@ -292,6 +291,7 @@ Page({
       }
     })
   },
+  
   //点击触发收藏事件
   handleCollect(e){
     if(!app.globalData.userOpenId){
@@ -303,38 +303,54 @@ Page({
       return;
     }
     //向后台发送POST请求将机票添加到该用户的收藏列表
-    this.getCollectInf();
-    let collect = this.data.collect;
-    let isCollected = false;
-    //判断机票是否被收藏过
-    let index = collect.findIndex(v=>v.id==this.data.ticketInfList[e.currentTarget.dataset.index].id);
-    if(index!=-1){
-      //从数据中删除
-      this.collectDel(e.currentTarget.dataset.index);
-      isCollected = false;
-      wx-wx.showToast({
-        title: '取消成功',
-        icon: 'success',
-        mask: false
-      })
+    /* this.getCollectInf(); */
+    wx.request({
+      url: 'http://airaflyscanner.site:8000/concernList/',
+      data:{
+        openid: app.globalData.userOpenId
+      },
+      success: (res)=>{
+        //从数据库获取收藏信息
+        console.log("收藏列表:",res);
+        this.setData({
+          collect: res.data
+        });
+        let collect = this.data.collect;
+        let isCollected = false;
+        //判断机票是否被收藏过
+        let index = collect.findIndex(v=>v.id==this.data.ticketInfList[e.currentTarget.dataset.index].id);
+        console.log("收藏过了吗？？",index);
+        if(index!=-1){
+          //从数据中删除
+          this.collectDel(e.currentTarget.dataset.index);
+          isCollected = false;
+          wx-wx.showToast({
+            title: '取消成功',
+            icon: 'success',
+            mask: false
+          })
+        }
+        else{
+          //添加到数据库
+          this.collectAdd(e.currentTarget.dataset.index);
+          isCollected = true;
+          wx-wx.showToast({
+            title: '收藏成功',
+            icon: 'success',
+            mask: false
+          })
+        }
+        //修改data中的isCollect[]属性
+        this.data.ticketInfList[e.currentTarget.dataset.index].isCollect = isCollected;
     }
-    else{
-      //添加到数据库
-      this.collectAdd(e.currentTarget.dataset.index);
-      isCollected = true;
-      wx-wx.showToast({
-        title: '收藏成功',
-        icon: 'success',
-        mask: false
-      })
-    }
-    //修改data中的isCollect[]属性
-    this.data.ticketInfList[e.currentTarget.dataset.index].isCollect = isCollected;
+    })
+    //?由于未知原因，极大可能是异步请求的问题，getCollectInf请求总是执行的较慢导致collect保留的其实是上一次的收藏，也就是会导致，明明取消收藏了，还会出现一次已收藏的状态，异步请求时执行了剩余代码.
+    //如何防止回调地狱
+    
   },
 
   /* 获取收藏信息 */
   getCollectInf: function(){
-    let collect = [];
     /* console.log("获取收藏信息时的openid",app.globalData.userOpenId); */
     wx.request({
       url: 'http://airaflyscanner.site:8000/concernList/',
@@ -343,6 +359,7 @@ Page({
       },
       success: (res)=>{
         //从数据库获取收藏信息
+        console.log("收藏列表:",res);
         this.setData({
           collect: res.data
         })

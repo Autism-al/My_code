@@ -2,7 +2,8 @@
 App({
   globalData : {
     //用户openid作为全局变量，方便各个页面的调用
-    userOpenId: ""
+    userOpenId: "",
+    cnt: 0
   },
   onLaunch: function () {
     // 展示本地存储能力

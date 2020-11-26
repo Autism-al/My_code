@@ -15,6 +15,7 @@ Page({
     this.directRequest();
     
   },
+    
   directRequest(){
     //请求直达机票信息
     wx.request({
