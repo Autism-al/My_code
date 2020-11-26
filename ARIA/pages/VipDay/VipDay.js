@@ -1,10 +1,50 @@
-// pages/VipDay/VipDay.js
+// pages/VIP/VIP.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    array:[
+      {
+        url:'https://s3.ax1x.com/2020/11/21/DlIBNj.png',
+        day:'-8-',
+        from1:'XX',
+        to1:'YY',
+        price1:'-999-',
+        from2:'XX',
+        to2:'ZZ',
+        price2:'-999-'
+      },
+      {
+        url:'https://s3.ax1x.com/2020/11/25/DasS9s.jpg',
+        day:'-8-',
+        from1:'XX',
+        to1:'YY',
+        price1:'-999-',
+        from2:'XX',
+        to2:'ZZ',
+        price2:'-999-'
+      },{
+        url:'https://s3.ax1x.com/2020/11/25/Dasn3R.jpg',
+        day:'-9-',
+        from1:'XX',
+        to1:'YY',
+        price1:'-999-',
+        from2:'XX',
+        to2:'ZZ',
+        price2:'-999-'
+      },{
+        url:'https://s3.ax1x.com/2020/11/25/DastCd.jpg',
+        day:'-12-',
+        from1:'XX',
+        to1:'YY',
+        price1:'-999-',
+        from2:'XX',
+        to2:'ZZ',
+        price2:'-999-'
+      },
+  ]
 
   },
 
