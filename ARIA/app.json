@@ -8,6 +8,7 @@
     "pages/loading/loading",
     "pages/BudgetTicket/BudgetTicket",
     "pages/VipDay/VipDay",
+    "pages/VResult/VResult",
     "pages/BudgetResult/BudgetResult",
     "pages/Collections/Collections",
     "pages/city/city"
