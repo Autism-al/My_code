@@ -1,2 +1,16 @@
-<!--pages/VipDay/VipDay.wxml-->
-<text>pages/VipDay/VipDay.wxml</text>
+<!--VIP.wxml-->
+<view class="ContentBox">
+  <navigator class="VIPInf" wx:for="{{array}}" wx:key="item" url="../VResult/VResult?nameSelected={{item.name}}">
+    <view class="LineOne">
+      <image class="Logo" mode="widthFix" src="{{item.url}}"></image>
+      <view class="Day">
+        <view class="MeiYue">每月</view>
+        <view class="Date"> {{item.day}} </view>
+        <view class="Ri">日</view>
+      </view>
+    </view>
+  </navigator>
+  <view class="Warning">
+    <text>该功能尚未开发完成，敬请期待</text>
+  </view>
+</view>
