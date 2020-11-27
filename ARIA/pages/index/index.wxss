@@ -14,11 +14,12 @@ page{
   display: flex;
   justify-content: center;
   /* background: linear-gradient(rgb(0, 174, 255), rgba(7,98,193)); */
+  position: relative;
 }
 
 .TopPlane{
   width: 100%;
-  height: 180px;
+  height: 360rpx;
   /* background-color: #fff; */
   /* border: solid #fff; */
  /*  border-radius: 20rpx; */
@@ -30,12 +31,6 @@ page{
   color: #fff;
   font-size: 40rpx;
   top: 60rpx;
-}
-
-.TopBox{
-  display: flex;
-  height: 400rpx;
-  position: relative;
 }
 
 .floatBox{

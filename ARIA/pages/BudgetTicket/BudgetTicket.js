@@ -9,7 +9,7 @@ Page({
     monthSelected: 0,
     dateSelected: 0,
     daySelected: [],
-    dcitySelected:"福州",
+    citySelected:"福州",
     acitySelected:"上海",
     index: 0, 
   },

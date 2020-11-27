@@ -344,8 +344,7 @@ Page({
         this.data.ticketInfList[e.currentTarget.dataset.index].isCollect = isCollected;
     }
     })
-    //?由于未知原因，极大可能是异步请求的问题，getCollectInf请求总是执行的较慢导致collect保留的其实是上一次的收藏，也就是会导致，明明取消收藏了，还会出现一次已收藏的状态，异步请求时执行了剩余代码.
-    //如何防止回调地狱
+    
     
   },
 

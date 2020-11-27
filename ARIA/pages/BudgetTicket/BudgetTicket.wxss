@@ -12,22 +12,20 @@ page{
 .TopBox{
   width: 100%;
   display: flex;
-  background: linear-gradient(rgb(0, 174, 255), rgba(7,98,193));
+  justify-content: center;
+  /* background: linear-gradient(rgb(0, 174, 255), rgba(7,98,193)); */
+  position: relative;
 }
 
 .TopPlane{
   width: 100%;
-  background-color: #fff;
-  border: solid #fff;
-  border-radius: 20rpx;
-  margin: 10rpx;
+  height: 360rpx;
+  /* background-color: #fff; */
+  /* border: solid #fff; */
+ /*  border-radius: 20rpx; */
+  /* margin: 10rpx; */
 }
 
-.TopBox{
-  display: flex;
-  height: 400rpx;
-  position: relative;
-}
 
 .floatBox{
   border-radius: 10rpx;

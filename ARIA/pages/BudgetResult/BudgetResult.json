@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "resTabs":"../../Componet/resTabs/resTabs"
+  },
+  "navigationBarTitleText": "机票查询"
 }
