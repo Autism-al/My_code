@@ -1,0 +1,47 @@
+<!-- 引入wxs脚本 -->
+<!-- 通过自定义的module名称tools引用sub截取方法 -->
+<wxs src="../../wxs/subutils.wxs" module="tools" />
+
+<view class="ContentBox">
+<!-- 顶部图片 -->
+  <view class="TopBox">
+    <image class="TopPlane" lazy-load="true" mode="widthFix" src="https://s1.ax1x.com/2020/11/09/BHLe4H.png" />
+  </view>
+
+<!-- 机票信息列表，可向左滑动点击收藏 -->
+  <view class="ticketList">
+  <view  wx:for="{{ticketInfList}}" wx:key="id">
+        <!-- 机票信息 -->
+        <view class="ticketInf">
+          <!-- 时间地点 -->
+          <view class="timePlace">
+            <!-- 出发时间地点 -->
+            <view class="dtimeDplace">
+              <view class="dateInf">{{tools.sub(item.departureDate,0,10)}}</view>
+              <view class="timeInf">{{tools.sub(item.departureDate,11,16)}}</view>
+              <view class="placeInf">{{item.dcityName}}</view>
+            </view>
+            <view class="Mid">
+              <text class="CompanyName">{{item.companyName}}</text>
+              <view class="iconfont iconrightArrow"></view>
+            </view>
+            
+            <!-- 到达时间地点 -->
+            <view class="dtimeDplace">
+              <view class="dateInf">{{tools.sub(item.arrivalDate,0,10)}}</view>
+              <view class="timeInf">{{tools.sub(item.arrivalDate,11,16)}}</view>
+              <view class="placeInf">{{item.acityName}}</view>
+            </view>
+          </view>
+          <!-- 票价信息 -->
+          <view class="PriceBox">
+            <view class="priceInf">
+              <view class="money">￥</view>
+              <view class="price">{{item.price}}</view>
+            </view>
+            <view class="rate">Rate: {{item.rate}}</view>
+          </view>
+        </view>
+  </view>
+  </view>
+</view>
