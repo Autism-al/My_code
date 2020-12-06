@@ -1,7 +1,13 @@
 <view class="ContentBox">
   <!-- 顶部图片 -->
   <view class="TopBox">
-    <image class="TopPlane" lazy-load="true" mode="widthFix" src="https://s3.ax1x.com/2020/11/25/DUM44H.png" />
+    <image class="TopPlane" lazy-load="true"  src="https://s3.ax1x.com/2020/11/25/DUM44H.png" />
+    <view class="TopTextBox">
+      <view class="TopText1">Hi,</view>
+      <view class="TopText2">
+        想好要去哪儿了吗
+      </view>
+    </view>
   </view>
   <!-- 浮动在顶部盒子之上 -->
   <view class="floatBox">
@@ -11,7 +17,6 @@
       <view class="iconfont icondirectPlane"></view>
       <navigator class="citySelect2" url="../../pages/acity/acity"><text>{{acitySelected}}</text></navigator>
     </view>
-    
 
     <!-- 日期选择 -->
     <view class="DateBox"> 

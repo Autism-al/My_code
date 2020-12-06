@@ -26,6 +26,13 @@ page{
   /* margin: 10rpx; */
 }
 
+.TopTextBox{
+  position: absolute;
+  color: #fff;
+  font-size: 40rpx;
+  top: 60rpx;
+}
+
 
 .floatBox{
   border-radius: 10rpx;

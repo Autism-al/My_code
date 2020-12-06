@@ -1,11 +1,10 @@
 /* pages/VIP/VIP.wxss */
 page{
-  height: 100%;
+  background-color: rgba(7,98,193);
 }
 
 .ContentBox{
   height: 100%;
-  background-color: rgba(7,98,193);
 }
 
 .VIPInf{

@@ -42,3 +42,10 @@ App({
     userInfo: null
   }
 })
+
+/* {
+  "pagePath": "pages/VipDay/VipDay",
+  "text": "会员日",
+  "iconPath": "images/tabar/vipDay.png",
+  "selectedIconPath": "images/tabar/vipDaySelected.png"
+}, */

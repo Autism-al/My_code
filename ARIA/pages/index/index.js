@@ -25,7 +25,9 @@ Page({
   initDate: function(e){
     const nowDateTime = new Date();
     let nowDay = '';
-    let daySelected = nowDateTime.toLocaleDateString().split("/");
+    var ntime= nowDateTime.getFullYear() + "/"
+    + (nowDateTime.getMonth() + 1) + "/" + nowDateTime.getDate();
+    let daySelected = ntime.split("/");
     nowDay += nowDateTime.getMonth()+1;
     nowDay += "月";
     nowDay += nowDateTime.getDate();
@@ -67,7 +69,7 @@ Page({
     let daySelected = this.data.daySelected[0] + "-" + this.data.daySelected[1] + "-" + this.data.daySelected[2];
 
     wx.request({
-      url: 'http://airaflyscanner.site:8000/directResearch/',
+      url: 'https://airaflyscanner.site:8080/directResearch/',
       data:{
         dcityName:this.data.citySelected,
         dtime:daySelected,
@@ -75,7 +77,6 @@ Page({
       },
       success: (res)=>{
         console.log(res);
-        //获取缓存中的机票收藏的数组
         let collect = wx.getStorageSync('collect')||[];
         //判断当前页面机票是否被收藏,若是已被收藏，就不该出现在推荐中
         for (var index in res.data) {

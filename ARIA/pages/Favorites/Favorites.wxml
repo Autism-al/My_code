@@ -7,9 +7,8 @@
       <view class="userName">{{userInfo.nickName}}</view>
     </view>
   </view>
-  <view wx:else class="userButton">
-    <navigator url="../../pages/login/login">登录</navigator>
-  </view>
+    <button wx:else class="userButton" type="primary" plain bindgetuserinfo="handleGetUserInfo" open-type="getUserInfo" style="background-color:rgb(254, 149, 18);color: white;">登 录</button>
+    <!-- <navigator url="../../pages/login/login">登录</navigator> -->
   
 </view>
 

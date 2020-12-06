@@ -15,7 +15,7 @@ Page({
           //如果成功获取code,发起网络请求
           wx.request({
             method: 'POST',
-            url: 'http://airaflyscanner.site:8000/login/',
+            url: 'https://airaflyscanner.site:8080/login/',
             data: {
               code: res.code
             },

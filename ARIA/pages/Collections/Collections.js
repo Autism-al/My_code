@@ -16,7 +16,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    //从缓存中读取收藏信息
+    //读取收藏信息
     this.getCollectInf();
   },
     //手指触摸动作开始 记录起点X坐标
@@ -74,7 +74,7 @@ Page({
       /* console.log("康康点击会发生什么e？",e); */
       let index = e.currentTarget.dataset.index;
       wx.request({
-        url: 'http://airaflyscanner.site:8000/concernList/',
+        url: 'https://airaflyscanner.site:8080/concernList/',
         method: "DELETE",
         data:{
           openid:app.globalData.userOpenId,
@@ -93,7 +93,7 @@ Page({
 
     getCollectInf: function(){
       wx.request({
-        url: 'http://airaflyscanner.site:8000/concernList/',
+        url: 'https://airaflyscanner.site:8080/concernList/',
         data:{
           openid:app.globalData.userOpenId
         },

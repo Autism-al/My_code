@@ -170,6 +170,8 @@ Page({
  
   // 点击日期方法
   clickDate(e) {
+     //待修改，获取用户输入的年份，并在滑动条从12/31到1/1时使年份+1
+     var yearSelected = '2020';
     var that = this;
     console.log("点击",e);
     console.log('点击日期携带的下标：', e.currentTarget.dataset.index);  //当前的点击的日期
@@ -177,8 +179,7 @@ Page({
     var index = e.currentTarget.dataset.index;
     var monthSelected = this.data.dateList[index].month;
     var dateSelected = this.data.dateList[index].day;
-    //待修改，获取用户输入的年份，并在滑动条从12/31到1/1时使年份+1
-    var yearSelected = '2020';
+   
     var daySelected = yearSelected + '-' + monthSelected + '-' + dateSelected;
     that.setData({
       clickIndex: index,
@@ -261,7 +262,7 @@ Page({
     console.log("向接口请求的城市",this.data.citySelected);
     this.getCollectInf();
     wx.request({
-      url: 'http://airaflyscanner.site:8000/directResearch/',
+      url: 'https://airaflyscanner.site:8080/directResearch/',
       data:{
         dcityName:this.data.citySelected,
         dtime:this.data.daySelected,
@@ -305,7 +306,7 @@ Page({
     //向后台发送POST请求将机票添加到该用户的收藏列表
     /* this.getCollectInf(); */
     wx.request({
-      url: 'http://airaflyscanner.site:8000/concernList/',
+      url: 'https://airaflyscanner.site:8080/concernList/',
       data:{
         openid: app.globalData.userOpenId
       },
@@ -352,7 +353,7 @@ Page({
   getCollectInf: function(){
     /* console.log("获取收藏信息时的openid",app.globalData.userOpenId); */
     wx.request({
-      url: 'http://airaflyscanner.site:8000/concernList/',
+      url: 'https://airaflyscanner.site:8080/concernList/',
       data:{
         openid: app.globalData.userOpenId
       },
@@ -369,7 +370,7 @@ Page({
   //增加收藏
   collectAdd: function(index){
     wx.request({
-      url: 'http://airaflyscanner.site:8000/concernList/',
+      url: 'https://airaflyscanner.site:8080/concernList/',
       method:"POST",
       data:{
         ticketId: this.data.ticketInfList[index].id,
@@ -384,7 +385,7 @@ Page({
   /* 删除收藏 */
   collectDel: function(index){
     wx.request({
-      url: 'http://airaflyscanner.site:8000/concernList/',
+      url: 'https://airaflyscanner.site:8080/concernList/',
       method: "DELETE",
       data:{
         ticketId: this.data.ticketInfList[index].id,

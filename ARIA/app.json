@@ -6,11 +6,11 @@
     "pages/Favorites/Favorites",
     "pages/BudgetTicket/BudgetTicket",
     "pages/VipDay/VipDay",
-    "pages/VResult/VResult",
     "pages/BudgetResult/BudgetResult",
     "pages/Collections/Collections",
     "pages/city/city",
-    "template/loading/loading"
+    "template/loading/loading",
+    "pages/acity/acity"
   ],
   "window": {
     "backgroundTextStyle": "dark",
@@ -24,26 +24,21 @@
       {
         "pagePath": "pages/index/index",
         "text": "首页",
-        "iconPath": "images/images0/home.png",
-        "selectedIconPath": "images/images0/homeSelected.png"
+        "iconPath": "images/tabar/home.png",
+        "selectedIconPath": "images/tabar/homeSelected.png"
       },
       {
         "pagePath": "pages/BudgetTicket/BudgetTicket",
         "text": "常规搜索",
-        "iconPath": "images/images0/SearchTicket.png",
-        "selectedIconPath": "images/images0/SearchTicketSelected.png"
+        "iconPath": "images/tabar/SearchTicket.png",
+        "selectedIconPath": "images/tabar/SearchTicketSelected.png"
       },
-      {
-        "pagePath": "pages/VipDay/VipDay",
-        "text": "会员日",
-        "iconPath": "images/images0/vipDay.png",
-        "selectedIconPath": "images/images0/vipDaySelected.png"
-      },
+     
       {
         "pagePath": "pages/Favorites/Favorites",
         "text": "我的",
-        "iconPath": "images/images0/user.png",
-        "selectedIconPath": "images/images0/userSelected.png"
+        "iconPath": "images/tabar/user.png",
+        "selectedIconPath": "images/tabar/userSelected.png"
       }
     ],
     "selectedColor": "#1296db",

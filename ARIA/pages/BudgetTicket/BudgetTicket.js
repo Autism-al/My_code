@@ -23,7 +23,9 @@ Page({
   initDate: function(e){
     const nowDateTime = new Date();
     let nowDay = '';
-    let daySelected = nowDateTime.toLocaleDateString().split("/");
+    var ntime= nowDateTime.getFullYear() + "/"
+    + (nowDateTime.getMonth() + 1) + "/" + nowDateTime.getDate();
+    let daySelected = ntime.split("/");
     nowDay += nowDateTime.getMonth()+1;
     nowDay += "月";
     nowDay += nowDateTime.getDate();

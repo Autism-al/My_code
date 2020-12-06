@@ -264,7 +264,7 @@ Page({
     console.log("向接口请求的城市",this.data.dcitySelected,"和",this.data.acitySelected);
     /* this.getCollectInf(); */
     wx.request({
-      url: 'http://airaflyscanner.site:8000/normalResearch/',
+      url: 'https://airaflyscanner.site:8080//normalResearch/',
       data:{
         dcityName:this.data.dcitySelected,/* this.data.dcitySelected */
         acityName:this.data.acitySelected,/* this.data.acitySelected */
@@ -308,7 +308,7 @@ Page({
     //向后台发送POST请求将机票添加到该用户的收藏列表
     /* this.getCollectInf(); */
     wx.request({
-      url: 'http://airaflyscanner.site:8000/concernList/',
+      url: 'https://airaflyscanner.site:8080/concernList/',
       data:{
         openid: app.globalData.userOpenId
       },
@@ -355,7 +355,7 @@ Page({
   getCollectInf: function(){
     /* console.log("获取收藏信息时的openid",app.globalData.userOpenId); */
     wx.request({
-      url: 'http://airaflyscanner.site:8000/concernList/',
+      url: 'https://airaflyscanner.site:8080/concernList/',
       data:{
         openid: app.globalData.userOpenId
       },
@@ -372,7 +372,7 @@ Page({
   //增加收藏
   collectAdd: function(index){
     wx.request({
-      url: 'http://airaflyscanner.site:8000/concernList/',
+      url: 'https://airaflyscanner.site:8080/concernList/',
       method:"POST",
       data:{
         ticketId: this.data.ticketInfList[index].id,
@@ -387,7 +387,7 @@ Page({
   /* 删除收藏 */
   collectDel: function(index){
     wx.request({
-      url: 'http://airaflyscanner.site:8000/concernList/',
+      url: 'https://airaflyscanner.site:8080/concernList/',
       method: "DELETE",
       data:{
         ticketId: this.data.ticketInfList[index].id,
