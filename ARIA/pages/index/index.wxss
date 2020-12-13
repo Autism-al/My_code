@@ -133,7 +133,6 @@ page{
   background-color: #59A5EE;
   color: #fff;
   border-radius: 50rpx;
-  height: 60%;
   padding: 8rpx 18rpx;
   margin:0rpx 50rpx 0rpx 0rpx;
   font-size: 26rpx;

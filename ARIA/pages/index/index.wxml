@@ -44,7 +44,7 @@
       <view class="title1">低价提醒</view>
       <view class="title2">航班降价自动推送</view>
     </view>
-    <navigator class="remindContent">添加提醒</navigator>
+    <button class="remindContent" bindtap="requestMsg" style="width:240rpx;">订阅提醒</button>
   </view>
 </view>
 

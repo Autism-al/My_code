@@ -1,4 +1,6 @@
 //index.js
+const app = getApp();
+
 Page({
   
   /**
@@ -50,6 +52,39 @@ Page({
     
 
  }, 
+ // login.js
+requestMsg(){
+  if(!app.globalData.userOpenId){
+    wx.showToast({
+      title: '请先登录再使用订阅功能',
+      icon: 'none',
+      mask: false
+    })
+    return;
+  }
+  return new Promise((resolve, reject) => {
+    wx.requestSubscribeMessage({
+      tmplIds: ["lu4TyPHCeQvJPCSH-IJ9X1mL3jLQVTCODK50VffU1oI"],
+      success: (res) => {
+        if (res['lu4TyPHCeQvJPCSH-IJ9X1mL3jLQVTCODK50VffU1oI'] === 'accept'){
+          wx.showToast({
+            title: '订阅成功',
+            duration: 1000,
+            success(data) {
+              //成功
+              resolve()
+            }
+          })
+        }
+      },
+      fail(err) {
+        //失败
+        console.error(err);
+        reject()
+      }
+    })
+  })
+},
   /**
    * 生命周期函数--监听页面加载
    */

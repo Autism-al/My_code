@@ -9,7 +9,14 @@ Page({
     items: [],
     startX: 0, //开始坐标
     startY: 0,
-
+    typeArr:["出发日期","航空公司"],
+    typeIndex: 0
+  },
+  bindTypeChange: function(e){
+    console.log(e);
+    this.setData({
+      typeIndex: e.detail.value
+    })
   },
 
   /**
@@ -71,14 +78,13 @@ Page({
     },
     //删除事件
     del: function (e) {
-      /* console.log("康康点击会发生什么e？",e); */
       let index = e.currentTarget.dataset.index;
       wx.request({
-        url: 'https://airaflyscanner.site:8080/concernList/',
+        url: 'http://airaflyscanner.site:8000/concernList/',
         method: "DELETE",
         data:{
           openid:app.globalData.userOpenId,
-          ticketId: this.data.items[index].id,
+          ticketId: this.data.items[index].ticketId.id,
         },
         success: (res)=>{
           console.log(res);
@@ -93,7 +99,7 @@ Page({
 
     getCollectInf: function(){
       wx.request({
-        url: 'https://airaflyscanner.site:8080/concernList/',
+        url: 'http://airaflyscanner.site:8000/concernList/',
         data:{
           openid:app.globalData.userOpenId
         },

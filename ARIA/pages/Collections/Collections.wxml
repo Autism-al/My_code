@@ -7,8 +7,7 @@
       <text>收藏</text>
     </view>
     <view class="collectType">
-      <text>全部分类</text>
-      <text class="iconfont iconzhankai"></text>
+      <picker bindchange="bindTypeChange" value="{{typeIndex}}" range="{{typeArr}}">{{typeArr[typeIndex]}}<text class="iconfont iconzhankai"></text></picker>
     </view>
   </view>
 </view>
@@ -18,29 +17,44 @@
   <movable-area class='movable-area'>
     <movable-view direction="horizontal" class='movable-view'>
       <view class="touch-item {{item.isTouchMove ? 'touch-move-active' : ''}}" data-index="{{index}}" bindtouchstart="touchstart" bindtouchmove="touchmove">
+        <!-- 日期 -->
+        <view class="dateBox">
+          <view class="date">
+          {{tools.sub(item.ticketId.departureDate,0,10)}}
+          </view>
+          <view class="company">
+          {{item.ticketId.companyName+" "+item.ticketId.flightNumber}}
+          </view>
+        </view>
         <!-- 机票信息 -->
         <view class="ticketInf">
           <!-- 时间地点 -->
           <view class="timePlace">
             <!-- 出发时间地点 -->
             <view class="dtimeDplace">
-              <view class="timeInf">{{tools.sub(item.departureDate,11,16)}}</view>
-              <view class="placeInf">{{item.dcityName}}</view>
-              <view class="airportInf">{{item.dairport}}</view>
+              <view class="timeInf">{{tools.sub(item.ticketId.departureDate,11,16)}}</view>
+              <view class="placeInf">{{item.ticketId.dcityName}}</view>
+              <view class="airportInf">{{item.ticketId.dairport}}</view>
             </view>
             <view class="iconfont iconrightArrow"></view>
             <!-- 到达时间地点 -->
             <view class="dtimeDplace">
-              <view class="timeInf">{{tools.sub(item.arrivalDate,11,16)}}</view>
-              <view class="placeInf">{{item.acityName}}</view>
-              <view class="airportInf">{{item.aairport}}</view>
+              <view class="timeInf">{{tools.sub(item.ticketId.arrivalDate,11,16)}}</view>
+              <view class="placeInf">{{item.ticketId.acityName}}</view>
+              <view class="airportInf">{{item.ticketId.aairport}}</view>
             </view>
           </view>
           <!-- 票价信息 -->
           <view class="priceInf">
-            <view class="money">￥</view>
-            <view class="price">{{item.price}}</view>
-            
+            <view wx:if="{{item.orgPrice!=item.ticketId.price}}"  class="orgPrice">
+              <text class="money">￥</text>
+            {{item.orgPrice}}
+            </view>
+
+            <view class="price">
+            <text class="money">￥</text>
+            {{item.ticketId.price}}
+            </view>
           </view>
         </view>
         <view class="del" catchtap="del" data-index="{{index}}">

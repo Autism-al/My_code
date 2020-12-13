@@ -207,6 +207,7 @@ Page({
   },
   //手指触摸动作开始 记录起点X坐标
   touchstart: function (e) {
+    console.log("hi",e);
     //开始触摸时 重置所有删除
     this.data.ticketInfList.forEach(function (v, i) {
       if (v.isTouchMove)//只操作为true的
@@ -220,6 +221,7 @@ Page({
   },
   //滑动事件处理
   touchmove: function (e) {
+    console.log(e);
     var that = this,
       index = e.currentTarget.dataset.index,//当前索引
       startX = that.data.startX,//开始X坐标
@@ -262,10 +264,10 @@ Page({
     console.log("向接口请求的城市",this.data.citySelected);
     this.getCollectInf();
     wx.request({
-      url: 'https://airaflyscanner.site:8080/directResearch/',
+      url: 'http://airaflyscanner.site:8000/directResearch/',
       data:{
         dcityName:this.data.citySelected,
-        dtime:this.data.daySelected,
+        dtime:"2021-2-18"/* this.data.daySelected */,
         sortType:this.data.typeSelected
       },
       success: (res)=>{
@@ -273,7 +275,7 @@ Page({
         console.log(res);
         //获取缓存中的机票收藏的数组
         let collect = this.data.collect;
-        console.log("康康收藏里有什么",collect);
+        /* console.log("康康收藏里有什么",collect); */
         //判断当前页面机票是否被收藏
         for (var indexCollect in collect) {
           for (var index in res.data)
@@ -294,7 +296,8 @@ Page({
   },
   
   //点击触发收藏事件
-  handleCollect(e){
+  handleCollect: function(e){
+    console.log("e的内容：");
     if(!app.globalData.userOpenId){
       wx.showToast({
         title: '请先登录再使用收藏功能',
@@ -308,7 +311,7 @@ Page({
     wx.request({
       url: 'https://airaflyscanner.site:8080/concernList/',
       data:{
-        openid: app.globalData.userOpenId
+        openid: app.globalData.userOpenId,
       },
       success: (res)=>{
         //从数据库获取收藏信息
@@ -320,7 +323,7 @@ Page({
         let isCollected = false;
         //判断机票是否被收藏过
         let index = collect.findIndex(v=>v.id==this.data.ticketInfList[e.currentTarget.dataset.index].id);
-        console.log("收藏过了吗？？",index);
+        /* console.log("收藏过了吗？？",index); */
         if(index!=-1){
           //从数据中删除
           this.collectDel(e.currentTarget.dataset.index);
@@ -345,8 +348,6 @@ Page({
         this.data.ticketInfList[e.currentTarget.dataset.index].isCollect = isCollected;
     }
     })
-    
-    
   },
 
   /* 获取收藏信息 */
@@ -370,11 +371,12 @@ Page({
   //增加收藏
   collectAdd: function(index){
     wx.request({
-      url: 'https://airaflyscanner.site:8080/concernList/',
+      url: 'http://airaflyscanner.site:8000/concernList/',
       method:"POST",
       data:{
         ticketId: this.data.ticketInfList[index].id,
-        openid: app.globalData.userOpenId
+        openid: app.globalData.userOpenId,
+        orgPrice: this.data.ticketInfList[index].price
       },
       success: (res)=>{
         console.log(res);
