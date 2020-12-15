@@ -1,10 +1,10 @@
 /* pages/VIP/VIP.wxss */
 page{
-  background-color: rgba(7,98,193);
+  height: 100%;
 }
 
 .ContentBox{
-  height: 100%;
+  background-color: rgba(7,98,193);
 }
 
 .VIPInf{
@@ -52,14 +52,4 @@ page{
   flex-direction: row;
   align-items: center;
   width: 50%;
-}
-
-.Warning{
-  margin-top: 10%;
-  justify-content: center;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  font-size: larger;
-  color: aliceblue;
 }
