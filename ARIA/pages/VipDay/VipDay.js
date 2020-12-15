@@ -8,79 +8,75 @@ Page({
     array:[
       {
         name:'奥凯航空',
-        url:'https://s3.ax1x.com/2020/12/15/rMITl4.jpg',
+        url:'https://s3.ax1x.com/2020/12/15/rQE8yQ.png',
         day:'-11-',
       },{
         name:'春秋航空',
-        url:'https://s3.ax1x.com/2020/12/15/rMTrrj.jpg',
+        url:'https://s3.ax1x.com/2020/12/15/rQEx1S.png',
         day:'-27-',
       },{
         name:'重庆航空',
-        url:'https://s3.ax1x.com/2020/12/15/rMHSpT.jpg',
+        url:'https://s3.ax1x.com/2020/12/15/rQVFkq.png',
         day:'-28-',
       },{
         name:'海南航空',
-        url:'https://s3.ax1x.com/2020/11/21/DlIBNj.png',
+        url:'https://s3.ax1x.com/2020/12/15/rQVZ1U.png',
         day:'-8-',
       },{
         name:'华夏航空',
-        url:'https://s3.ax1x.com/2020/12/15/rMzy5Q.jpg',
+        url:'https://s3.ax1x.com/2020/12/15/rQVlA1.png',
         day:'-25-',
       },{
         name:'昆明航空',
-        url:'https://s3.ax1x.com/2020/11/27/DrgeW6.png',
+        url:'https://s3.ax1x.com/2020/12/15/rQV0AI.png',
         day:'-16-',
       },{
-        name:'青岛航空',
-        url:'https://s3.ax1x.com/2020/12/15/rQS4SA.jpg',
-        day:'-26-',
-      },{
-        name:'上海吉祥航空',
-        url:'https://s3.ax1x.com/2020/12/15/rQSbTS.jpg',
+        name:'吉祥航空',
+        url:'https://s3.ax1x.com/2020/12/15/rQVRBj.png',
         day:'-25-',
       },{
         name:'山东航空',
-        url:'https://s3.ax1x.com/2020/11/25/DasS9s.jpg',
+        url:'https://s3.ax1x.com/2020/12/15/rQVhEn.png',
         day:'-8-',
       },{
         name:'四川航空',
-        url:'https://s3.ax1x.com/2020/12/15/rQSzyq.png',
+        url:'https://s3.ax1x.com/2020/12/15/rQVqu4.png',
         day:'-19(季度)-',
       },{
         name:'深圳航空',
-        url:'https://s3.ax1x.com/2020/11/27/DrgUl8.jpg',
+        url:'https://s3.ax1x.com/2020/12/15/rQZLz8.png',
         day:'-12-',
       },{
         name:'天津航空',
-        url:'https://s3.ax1x.com/2020/12/15/rQp1te.jpg',
+        url:'https://s3.ax1x.com/2020/12/15/rQeNTA.png',
         day:'-周日-',
       },{
         name:'厦门航空',
-        url:'https://s3.ax1x.com/2020/11/25/Dasn3R.jpg',
+        url:'https://s3.ax1x.com/2020/12/15/rQe6mQ.png',
         day:'-9-',
       },{
         name:'西藏航空',
-        url:'https://s3.ax1x.com/2020/12/15/rQpy1s.jpg',
+        url:'https://s3.ax1x.com/2020/12/15/rQegTs.png',
         day:'-月份同日-',
       },{
         name:'西部航空',
-        url:'https://s3.ax1x.com/2020/12/15/rQpvND.jpg',
+        url:'https://s3.ax1x.com/2020/12/15/rQmJ3V.png',
         day:'-周三-',
       },{
-        name:'云南祥鹏航空',
-        url:'https://s3.ax1x.com/2020/12/15/rQ9iut.jpg',
+        name:'祥鹏航空',
+        url:'https://s3.ax1x.com/2020/12/15/rQmaB4.png',
         day:'-周四-',
       },{
-        name:'中国南方航空',
-        url:'https://s3.ax1x.com/2020/12/15/rQ9EE8.jpg',
+        name:'南方航空',
+        url:'https://s3.ax1x.com/2020/12/15/rQmObQ.png',
         day:'-28-',
       },{
         name:'中国联合航空',
-        url:'https://s3.ax1x.com/2020/12/15/rQ9Kvn.jpg',
+        url:'https://s3.ax1x.com/2020/12/15/rQmx5n.png',
         day:'-周五-',
       },{
-        name:'中国东方航空',
-        url:'https://s3.ax1x.com/2020/12/15/rQ9TIS.jpg',
+        name:'东方航空',
+        url:'https://s3.ax1x.com/2020/12/15/rQnCvT.png',
         day:'-9-',
       }
   ]
