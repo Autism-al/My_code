@@ -10,7 +10,4 @@
       </view>
     </view>
   </navigator>
-  <view class="Warning">
-    <text>该功能尚未开发完成，敬请期待</text>
-  </view>
 </view>
