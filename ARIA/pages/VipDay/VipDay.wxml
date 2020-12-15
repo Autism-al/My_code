@@ -3,10 +3,13 @@
   <navigator class="VIPInf" wx:for="{{array}}" wx:key="item" url="../VResult/VResult?nameSelected={{item.name}}">
     <view class="LineOne">
       <image class="Logo" mode="widthFix" src="{{item.url}}"></image>
-      <view class="Day">
-        <view class="MeiYue">每月</view>
-        <view class="Date"> {{item.day}} </view>
-        <view class="Ri">日</view>
+      <view class="Inf">
+        <view class="Name">{{item.name}}</view>
+        <view class="Day">
+          <view class="MeiYue">每月</view>
+          <view class="Date"> {{item.day}} </view>
+          <view class="Ri">日</view>
+        </view>
       </view>
     </view>
   </navigator>
