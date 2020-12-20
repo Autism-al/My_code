@@ -13,7 +13,13 @@ Page({
     acitySelected:"上海",
     index: 0, 
   },
-  
+  bindgetdate(e){
+    let daySelected = [e.detail.year,e.detail.month,e.detail.date];
+    console.log(daySelected);
+    this.setData({
+      daySelected
+    })
+  },
   /* goToResultPage: function(e){
     wx.navigateTo({
       url: "../../pages/Result/Result",  

@@ -1,6 +1,7 @@
 {
   "usingComponents": {
-    "Select": "/Componet/select/select"
+    "Select": "/Componet/select/select",
+    "calendar":"../../Componet/calendar/calendar"
 },
   "navigationBarBackgroundColor": "#59A5EE",
   "navigationBarTitleText": "常规搜索"

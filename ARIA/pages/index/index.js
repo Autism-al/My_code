@@ -17,6 +17,13 @@ Page({
     typeSelected:"rate",
     index: 0, 
   },
+  bindgetdate(e){
+    let daySelected = [e.detail.year,e.detail.month,e.detail.date];
+    console.log(daySelected);
+    this.setData({
+      daySelected
+    })
+  },
   
   goToResultPage: function(e){
     wx.navigateTo({

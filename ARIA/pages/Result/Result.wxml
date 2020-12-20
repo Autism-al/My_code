@@ -10,10 +10,10 @@
   </view>
 <!-- 横向滑动日历 -->
 <view class="calendarBox">
-  <scroll-view enable-flex class="scroll-view" scroll-left="{{(clickIndex-5)*itemWidth}}" scroll-x scroll-with-animation>
+  <scroll-view enable-flex class="scroll-view" scroll-left="{{(clickIndex-3)*itemWidth}}" scroll-x scroll-with-animation>
   <view class='item' style='width:{{itemWidth}}px' wx:for="{{dateList}}" wx:key="index" data-index='{{index}}' bindtap='clickDate'>
     <view class='text-view {{item.month == monthSelected && item.day == dateSelected?"day-active":""}}'>
-      <view class='day'>{{item.month+"/"+item.day}}</view>
+      <view class='day' style='width:{{itemWidth}}px'>{{item.month+"/"+item.day}}</view>
       <view wx:if="{{item.month == sysmonth && item.day == nowDate}}">
         <text class='week'>今日</text>
       </view>
@@ -24,6 +24,7 @@
   </view>
 </scroll-view>
 </view>
+<calendarInResult selected="{{selected}}" bindselect="bindselect" bindgetdate="bindgetdate" />
 <!-- tabs筛选机票 -->
 <resTabs resTabs="{{resTabs}}" class="tabsBox" bindtabsItemChange="handleTabsItemChange">
 </resTabs>

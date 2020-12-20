@@ -1,6 +1,7 @@
 {
   "usingComponents": {
-    "resTabs":"../../Componet/resTabs/resTabs"
+    "resTabs":"../../Componet/resTabs/resTabs",
+    "calendarInResult":"../../Componet/calendarInResult/calendarInResult"
   },
   "navigationBarTitleText": "机票查询"
 }

@@ -20,10 +20,10 @@
         <!-- 日期 -->
         <view class="dateBox">
           <view class="date">
-          {{tools.sub(item.ticketId.departureDate,0,10)}}
+          {{tools.sub(item.ticketDetail.departureDate,0,10)}}
           </view>
           <view class="company">
-          {{item.ticketId.companyName+" "+item.ticketId.flightNumber}}
+          {{item.ticketDetail.companyName+" "+item.ticketDetail.flightNumber}}
           </view>
         </view>
         <!-- 机票信息 -->
@@ -32,28 +32,28 @@
           <view class="timePlace">
             <!-- 出发时间地点 -->
             <view class="dtimeDplace">
-              <view class="timeInf">{{tools.sub(item.ticketId.departureDate,11,16)}}</view>
-              <view class="placeInf">{{item.ticketId.dcityName}}</view>
-              <view class="airportInf">{{item.ticketId.dairport}}</view>
+              <view class="timeInf">{{tools.sub(item.ticketDetail.departureDate,11,16)}}</view>
+              <view class="placeInf">{{item.ticketDetail.dcityName}}</view>
+              <view class="airportInf">{{item.ticketDetail.dairport}}</view>
             </view>
             <view class="iconfont iconrightArrow"></view>
             <!-- 到达时间地点 -->
             <view class="dtimeDplace">
-              <view class="timeInf">{{tools.sub(item.ticketId.arrivalDate,11,16)}}</view>
-              <view class="placeInf">{{item.ticketId.acityName}}</view>
-              <view class="airportInf">{{item.ticketId.aairport}}</view>
+              <view class="timeInf">{{tools.sub(item.ticketDetail.arrivalDate,11,16)}}</view>
+              <view class="placeInf">{{item.ticketDetail.acityName}}</view>
+              <view class="airportInf">{{item.ticketDetail.aairport}}</view>
             </view>
           </view>
           <!-- 票价信息 -->
           <view class="priceInf">
-            <view wx:if="{{item.orgPrice!=item.ticketId.price}}"  class="orgPrice">
+            <view wx:if="{{item.orgPrice!=item.ticketDetail.price}}"  class="orgPrice">
               <text class="money">￥</text>
             {{item.orgPrice}}
             </view>
 
             <view class="price">
             <text class="money">￥</text>
-            {{item.ticketId.price}}
+            {{item.ticketDetail.price}}
             </view>
           </view>
         </view>

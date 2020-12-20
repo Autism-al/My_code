@@ -31,7 +31,6 @@ page{
 .scroll-view {
   height: 120rpx;
   background-color: #00509F;
-  width: 100%;
   white-space: nowrap;
   border-radius: 4rpx;
   display: flex;
@@ -39,7 +38,7 @@ page{
 
 .item {
   height: 120rpx;
-  display: inline-block;
+  /* display: inline-block; */
 }
 .text-view {
   display: flex;
@@ -60,7 +59,7 @@ page{
 }
 .day {
   font-size: 26rpx;
-  width: 100rpx;
+/*   width: 100rpx; */
   height: 60rpx;
   text-align: center;
   line-height: 60rpx;

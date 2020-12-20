@@ -2,6 +2,7 @@ const app = getApp()
 const network = require("../../utils/network.js");
 Page({
   data: {
+    clickIndex:100,
     collect:[],
     loading: true,
     ticketIdSelected: 0,
@@ -109,22 +110,25 @@ Page({
     var monthSelected = options.monthSelected;
     var yearSelected = options.yearSelected;
     var daySelected = yearSelected + '-' + monthSelected + '-' + dateSelected;
-    
     this.initTicketInf();
     var that = this;
     var myDate = new Date(); //获取系统当前时间
     var sysmonth = myDate.getMonth() + 1
     var nowDate = myDate.getDate();   //当前是本月几日
-    var today = myDate.toLocaleDateString();  //今日年月日
+    var dateNow = nowDate;
+    var monthNow = sysmonth;
+    var yearNow = myDate.getFullYear();
+    var dayNow = yearNow + '-' + monthNow + '-' + dateNow;
+    
     that.setData({
       nowDate: nowDate,
-      sysmonth: sysmonth
+      sysmonth: sysmonth,
     }),
     this.setData({
       dateSelected,
       monthSelected,
       daySelected,
-      citySelected
+      citySelected,
     }),
     this.directRequest();
     console.log('搜索页面传递来的日期（日）：', monthSelected+"/"+dateSelected);
@@ -144,34 +148,41 @@ Page({
     this.initData();
   },
 
-/*   onShow: function(){
-    let pages = getCurrentPages();
-    let currentPage = pages[pages.length-1];
-    let options = currentPage.options;
-    const {id} = options;
+  onShow: function(){
+    var daySelected = this.data.daySelected;
+    var myDate = new Date(); //获取系统当前时间
+    var sysmonth = myDate.getMonth() + 1
+    var nowDate = myDate.getDate();   //当前是本月几日
+    var dateNow = nowDate;
+    var monthNow = sysmonth;
+    var yearNow = myDate.getFullYear();
+    var dayNow = yearNow + '-' + monthNow + '-' + dateNow;
+    var clickIndex = this.DateDiff(daySelected,dayNow);
+    console.log("1158"+clickIndex);
+    this.setData({
+      clickIndex
+    })
     
-  }, */
+  },
  
   // 初始化日期
   initData() {
     const nowDateTime = +new Date();
     let dateList = [];
-    for (let i = 0; i < 60; i++) {
+    for (let i = 0; i < 150; i++) {
       let obj = this.getDateInfo(nowDateTime + i * 24 * 60 * 60 * 1000);
       obj.isChoose = i == 0;
       dateList.push(obj);
     }
     this.setData({
       dateList,
-      clickIndex: 0,
       scrollLeftIndex: 0
     });
   },
  
   // 点击日期方法
   clickDate(e) {
-     //待修改，获取用户输入的年份，并在滑动条从12/31到1/1时使年份+1
-     var yearSelected = '2020';
+    var yearSelected = '2020';
     var that = this;
     console.log("点击",e);
     console.log('点击日期携带的下标：', e.currentTarget.dataset.index);  //当前的点击的日期
@@ -179,8 +190,12 @@ Page({
     var index = e.currentTarget.dataset.index;
     var monthSelected = this.data.dateList[index].month;
     var dateSelected = this.data.dateList[index].day;
-   
+    if(monthSelected<=11)
+    {
+      yearSelected = "2021";
+    }
     var daySelected = yearSelected + '-' + monthSelected + '-' + dateSelected;
+    
     that.setData({
       clickIndex: index,
       monthSelected,
@@ -192,6 +207,17 @@ Page({
     // console.log(that.data.scrollLeftIndex);
     console.log('当前点击日期：',that.data.dateList[index].shortDateString);   //当前点击的日期
   },
+
+
+  DateDiff:function(sDate1,  sDate2){    //sDate1和sDate2是2002-12-18格式  
+    var  aDate,  oDate1,  oDate2,  iDays  
+    aDate  =  sDate1.split("-")  
+    oDate1  =  new  Date(aDate[0]  +  '-'  +  aDate[1]  +  '-'  +  aDate[2])    //转换为12-18-2002格式  
+    aDate  =  sDate2.split("-")  
+    oDate2  =  new  Date(aDate[0]  +  '-'  +  aDate[1]  +  '-'  +  aDate[2])  
+    iDays  =  parseInt(Math.abs(oDate1  -  oDate2)  /  1000  /  60  /  60  /24)    //把相差的毫秒数转换为天数  
+    return  iDays  
+},
 
   /* 从后台获取数据 */
   initTicketInf: function () {
@@ -207,7 +233,6 @@ Page({
   },
   //手指触摸动作开始 记录起点X坐标
   touchstart: function (e) {
-    console.log("hi",e);
     //开始触摸时 重置所有删除
     this.data.ticketInfList.forEach(function (v, i) {
       if (v.isTouchMove)//只操作为true的
@@ -221,7 +246,6 @@ Page({
   },
   //滑动事件处理
   touchmove: function (e) {
-    console.log(e);
     var that = this,
       index = e.currentTarget.dataset.index,//当前索引
       startX = that.data.startX,//开始X坐标
@@ -264,10 +288,10 @@ Page({
     console.log("向接口请求的城市",this.data.citySelected);
     this.getCollectInf();
     wx.request({
-      url: 'http://airaflyscanner.site:8000/directResearch/',
+      url: 'https://airaflyscanner.site:8080/directResearch/',
       data:{
         dcityName:this.data.citySelected,
-        dtime:"2021-2-18"/* this.data.daySelected */,
+        dtime:this.data.daySelected,
         sortType:this.data.typeSelected
       },
       success: (res)=>{
@@ -275,12 +299,11 @@ Page({
         console.log(res);
         //获取缓存中的机票收藏的数组
         let collect = this.data.collect;
-        /* console.log("康康收藏里有什么",collect); */
         //判断当前页面机票是否被收藏
         for (var indexCollect in collect) {
           for (var index in res.data)
           {
-            if(res.data[index].id==collect[indexCollect].id)
+            if(res.data[index].id==collect[indexCollect].ticketId)
             {
               res.data[index].isCollect = true;
             }
@@ -322,7 +345,7 @@ Page({
         let collect = this.data.collect;
         let isCollected = false;
         //判断机票是否被收藏过
-        let index = collect.findIndex(v=>v.id==this.data.ticketInfList[e.currentTarget.dataset.index].id);
+        let index = collect.findIndex(v=>v.ticketId==this.data.ticketInfList[e.currentTarget.dataset.index].id);
         /* console.log("收藏过了吗？？",index); */
         if(index!=-1){
           //从数据中删除
@@ -353,7 +376,9 @@ Page({
   /* 获取收藏信息 */
   getCollectInf: function(){
     /* console.log("获取收藏信息时的openid",app.globalData.userOpenId); */
-    wx.request({
+    if(app.globalData.userOpenId!="")
+    {
+      wx.request({
       url: 'https://airaflyscanner.site:8080/concernList/',
       data:{
         openid: app.globalData.userOpenId
@@ -366,6 +391,7 @@ Page({
         })
     }
     })
+} 
   },
 
   //增加收藏

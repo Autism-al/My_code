@@ -21,11 +21,12 @@
     </view>
     <!-- 日期选择 -->
     <view class="DateBox"> 
-    <picker mode="date" value="{{date}}" start="2020/11/11" end="2025/11/11" bindchange="bindDateChange"> 
+      <calendar selected="{{selected}}" bindselect="bindselect" bindgetdate="bindgetdate" />
+    <!-- <picker mode="date" value="{{date}}" start="2020/11/11" end="2025/11/11" bindchange="bindDateChange">
       <view class="picker"> 
       {{today}} 
       </view> 
-    </picker> 
+    </picker>  -->
     </view> 
     <!-- 时间段选择 -->
     

@@ -80,11 +80,11 @@ Page({
     del: function (e) {
       let index = e.currentTarget.dataset.index;
       wx.request({
-        url: 'http://airaflyscanner.site:8000/concernList/',
+        url: 'https://airaflyscanner.site:8080/concernList/',
         method: "DELETE",
         data:{
           openid:app.globalData.userOpenId,
-          ticketId: this.data.items[index].ticketId.id,
+          ticketId: this.data.items[index].ticketId,
         },
         success: (res)=>{
           console.log(res);
