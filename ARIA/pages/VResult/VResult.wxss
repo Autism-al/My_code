@@ -1,7 +1,9 @@
 /* pages/Result/Result.wxss */
 page{
-  background-color:rgba(7,98,193) ;
   height: 100%;
+}
+.ContentBox{
+  background-color:rgba(7,98,193) ;
 }
 
 .TopBox{
